@@ -15,6 +15,9 @@
 * root user외에 username으로 로그인한 사용자가 있어야 합니다.
 * 이 사용자는 user42 및 sudo 그룹에 속해야합니다.
 
+## 평가지
+https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2beroot.pdf
+
 ## 자료 정리
 * Debian
   * 데비안(영어: Debian)는 데비안 프로젝트가 개발한 자유(free) 컴퓨터 운영 체제이다.
