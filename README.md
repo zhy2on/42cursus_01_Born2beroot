@@ -17,6 +17,36 @@
 
 ## 평가지
 https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2beroot.pdf
+* Project overview
+  * The student evaluated should simply explain to you:
+  * [ ] The basic functioning of is virtual machine.
+  * [ ] His choice of operating system.
+  * [ ] The basic differences between Centos and Debian.
+  * [ ] The interest of virtual machines.
+  * [ ] defference between aptitude and apt and what APPArmor is.
+
+* Simple setup
+  * [ ] Ensure that the machine does not have a graphical environment at launch. A password will be requested before attempting to connect to this machine. Finally, connec with a user with the help of the student evaluated. This user must not be root. Pay attention to the password chosen, it must follow the rules imposed in the subject.
+  * [ ] Check that the UFW service is started with the help of evaluator.
+  * [ ] Check that the SSH service is started with the help of the evaluator.
+  * [ ] Chck that the chosen operating system is Debian or Centos with the help of the reviewer. If something does not work as expected or is not clearly explaned, the evaluation stops here.
+
+* User
+  * The subject requests that a user with the login of the evaluated student is present on the virtual machine. Check that it has been added and that it belongs to the "sudo" and "user42" groups.
+  * Make sure the rules imposed in the subject concerning the password policy have been put in place by following the following steps.
+  * First, create a new user. Assign it a password of your choice, respecting the subject rules. The evaluated student must now explain to you how he was able to set up the rules requested in the subject on their virtual machine.
+  * Normally there should be one or two modified files. If there is any problem, the evaluation stops here.
+  * [ ] Now that you have a new user, ask the student being evaluated to create a group named "evaluatig" in front of you and assign it to this user. Finally, check that this user belongs to "evaluating" group.
+  * [ ] Finally, ask the student evaluated to explain the advantages of this password policy, as well as the advantaged and disadvantageds of tis implementation. Of course, answering that it is because the subject asks for it does not count.
+
+* Hostname and partitions
+  * [ ] Check that the hostname of the machine is correctly formatted as follows: login42(login of the student evaluated).
+  * [ ] Modify this hostname by replacing the login with yours, then restart the machine. If on restart, the hostname has not been updated, the evaluation stops here.
+  * [ ] You can now restore the machine to the original hostname.
+  * [ ] Compare the output with the example given in the subject. Please note: if the student evaluated makes the bonuses, it will be necessary to refer to bonus example.
+  * This part is an opportunity to discuss the scores! The student being evaluated should give you a breif explanation of how LVM works and what it is all about. If something does not work as expected or is not clearly explained, the evaluation stops here.
+
+* SUDO
 
 ## 자료 정리
 * Debian
