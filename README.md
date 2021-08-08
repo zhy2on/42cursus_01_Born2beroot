@@ -36,6 +36,8 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
     |-----------|-----|
     | ![image](https://user-images.githubusercontent.com/52701529/128634425-95790cf2-b901-4a37-aa99-f9c587deeec7.png) | https://m.blog.naver.com/nkkh159/220832107076 |
   * apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
+  * <img src="https://user-images.githubusercontent.com/52701529/128635909-47dd2e21-9f95-49e8-8512-e0a527bedb7c.png" width="500">
+
 
 * aptitude / apt 차이
   * 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
