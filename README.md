@@ -30,6 +30,11 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * 현재 버전: 8.0-1905	커널: 4.18.0-80
 
 * AppArmor
+  * AppArmor ("Application Armor")는 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
+  * | 설치 오류 | 해결 |
+    |-----------|-----|
+    | ![image](https://user-images.githubusercontent.com/52701529/128634425-95790cf2-b901-4a37-aa99-f9c587deeec7.png) | https://m.blog.naver.com/nkkh159/220832107076 |
+  * apparmor tutorial - https://linuxhint.com/debian_apparmor_tutorial/
 
 * aptitude / apt 차이
   * 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
