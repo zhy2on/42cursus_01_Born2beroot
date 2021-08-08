@@ -58,5 +58,5 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   1. 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
   2. 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
   3. 기존에 사용중인 디스크의 공간을 확장할 수 있어서(!!!)
- 
-![image](https://user-images.githubusercontent.com/52701529/128603443-654431ba-acb7-411e-8653-8356852a4e5d.png)
+ * <img src="https://user-images.githubusercontent.com/52701529/128603443-654431ba-acb7-411e-8653-8356852a4e5d.png" width="400">
+
