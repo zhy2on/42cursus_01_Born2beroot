@@ -29,16 +29,6 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * 업스트림 소스인 레드햇 엔터프라이즈 리눅스와 완벽하게 호환되는 무료 기업용 컴퓨팅 플랫폼을 제공할 목적으로 만들어진 리눅스계 운영 체제 가운데 하나다.
   * 현재 버전: 8.0-1905	커널: 4.18.0-80
 
-* AppArmor
-  * AppArmor ("Application Armor")는 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
-  * APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
-  * | 설치 오류 | 해결 |
-    |-----------|-----|
-    | ![image](https://user-images.githubusercontent.com/52701529/128634425-95790cf2-b901-4a37-aa99-f9c587deeec7.png) | https://m.blog.naver.com/nkkh159/220832107076 |
-  * apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
-  * <img src="https://user-images.githubusercontent.com/52701529/128635909-47dd2e21-9f95-49e8-8512-e0a527bedb7c.png" width="500">
-
-
 * aptitude / apt 차이
   * 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
   * 패키지란? - https://koikebox.tistory.com/67 " 왜 데비안, 우부투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다. "
@@ -51,6 +41,14 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
   * http://taewan.kim/tip/apt-apt-get/ 정리 잘 돼있음!
   
+* AppArmor
+  * AppArmor ("Application Armor")는 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
+  * APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
+  * | 설치 오류 | 해결 |
+    |-----------|-----|
+    | ![image](https://user-images.githubusercontent.com/52701529/128634425-95790cf2-b901-4a37-aa99-f9c587deeec7.png) | https://m.blog.naver.com/nkkh159/220832107076 |
+  * apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
+  * <img src="https://user-images.githubusercontent.com/52701529/128635909-47dd2e21-9f95-49e8-8512-e0a527bedb7c.png" width="500">
 
 * LVM
   *  Logical Volume Manager. 리눅스의 하드디스크 관리 기술. (리눅스에서는 RAID와 LVM을 사용한다고 한다.) (오.. 운체에서 배운 내용)
