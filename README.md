@@ -40,6 +40,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
     |![image](https://user-images.githubusercontent.com/52701529/128633364-9231fd14-be61-48f3-b24b-149c40a69ec8.png)| ![image](https://user-images.githubusercontent.com/52701529/128633574-3b4eaaaf-6909-40ae-b86b-98b4b4f3b901.png)|
     | apt 이스터에그ㅎㅎ | ㅇㅎ 가장 큰 차이가 프론트엔드 지원하는지! aptitude는 명령어 실행시키면 이렇게 프론트엔드 프로그램으로 실행할 수 있다. |
   * dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
+  * http://taewan.kim/tip/apt-apt-get/ 정리 잘 돼있음!
   
 
 * LVM
