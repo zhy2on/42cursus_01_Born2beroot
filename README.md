@@ -17,52 +17,36 @@
 
 ## 평가지
 https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2beroot.pdf
-* Project overview
-  * The student evaluated should simply explain to you:
-  * [ ] The basic functioning of is virtual machine.
-  * [ ] His choice of operating system.
-  * [ ] The basic differences between Centos and Debian.
-  * [ ] The interest of virtual machines.
-  * [ ] defference between aptitude and apt and what APPArmor is.
-
-* Simple setup
-  * [ ] Ensure that the machine does not have a graphical environment at launch. A password will be requested before attempting to connect to this machine. Finally, connec with a user with the help of the student evaluated. This user must not be root. Pay attention to the password chosen, it must follow the rules imposed in the subject.
-  * [ ] Check that the UFW service is started with the help of evaluator.
-  * [ ] Check that the SSH service is started with the help of the evaluator.
-  * [ ] Chck that the chosen operating system is Debian or Centos with the help of the reviewer. If something does not work as expected or is not clearly explaned, the evaluation stops here.
-
-* User
-  * The subject requests that a user with the login of the evaluated student is present on the virtual machine. Check that it has been added and that it belongs to the "sudo" and "user42" groups.
-  * Make sure the rules imposed in the subject concerning the password policy have been put in place by following the following steps.
-  * First, create a new user. Assign it a password of your choice, respecting the subject rules. The evaluated student must now explain to you how he was able to set up the rules requested in the subject on their virtual machine.
-  * Normally there should be one or two modified files. If there is any problem, the evaluation stops here.
-  * [ ] Now that you have a new user, ask the student being evaluated to create a group named "evaluatig" in front of you and assign it to this user. Finally, check that this user belongs to "evaluating" group.
-  * [ ] Finally, ask the student evaluated to explain the advantages of this password policy, as well as the advantaged and disadvantageds of tis implementation. Of course, answering that it is because the subject asks for it does not count.
-
-* Hostname and partitions
-  * [ ] Check that the hostname of the machine is correctly formatted as follows: login42(login of the student evaluated).
-  * [ ] Modify this hostname by replacing the login with yours, then restart the machine. If on restart, the hostname has not been updated, the evaluation stops here.
-  * [ ] You can now restore the machine to the original hostname.
-  * [ ] Compare the output with the example given in the subject. Please note: if the student evaluated makes the bonuses, it will be necessary to refer to bonus example.
-  * This part is an opportunity to discuss the scores! The student being evaluated should give you a breif explanation of how LVM works and what it is all about. If something does not work as expected or is not clearly explained, the evaluation stops here.
-
-* SUDO
 
 ## 자료 정리
 * Debian
   * 데비안(영어: Debian)는 데비안 프로젝트가 개발한 자유(free) 컴퓨터 운영 체제이다.
   * 데비안은 안정성과 보안에 중점을 두며 사용자 편리성이 강한 우분투등 다른 많은 리눅스 배포판의 기반으로 쓰이고 있다.
   * 현재 버전: 10.0	커널: 4.19
+
 * CentOS
   * 센트OS(영어: CentOS)는 센트OS 프로젝트에서 레드햇 제휴로 개발한 컴퓨터 운영 체제이다.
   * 업스트림 소스인 레드햇 엔터프라이즈 리눅스와 완벽하게 호환되는 무료 기업용 컴퓨팅 플랫폼을 제공할 목적으로 만들어진 리눅스계 운영 체제 가운데 하나다.
   * 현재 버전: 8.0-1905	커널: 4.18.0-80
+
+* AppArmor
+
+* aptitude / apt 차이
+  * 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
+  * apt(Advanced Packaging Tool): 코어 라이브러리와 함께 동작하는 자유 사용자 인터페이스로, 데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다. APT는 이진 파일로부터나 소스 코드 컴파일을 통하여 소프트웨어 패키지의 확인·구성·설치를 자동화함으로써 유닉스 계열 컴퓨터 시스템 상의 소프트웨어를 관리하는 작업을 단순하게 만든다.
+  * aptitude : 어드밴스트 패키징 툴 (APT)의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다. 앱티튜드는 특히 유연한 검색 패턴을 지원하는 검색 기능을 가지고 있다. 원래 데비안을 위해 개발되었지만, RPM 패키지 매니저 (RPM) 기반 배포판에서도 등장한다.
+  * dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
+  * https://unix.stackexchange.com/questions/767/what-is-the-real-difference-between-apt-get-and-aptitude-how-about-wajig
+  * http://www.songtory.com/post/001003/1/245
+  * ![image](https://user-images.githubusercontent.com/52701529/128633364-9231fd14-be61-48f3-b24b-149c40a69ec8.png)
+
 * LVM
   *  Logical Volume Manager. 리눅스의 하드디스크 관리 기술. (리눅스에서는 RAID와 LVM을 사용한다고 한다.) (오.. 운체에서 배운 내용)
   *  LVM은 디스크를 좀 더 유연하게 사용하기 위해 물리적인 파티션을 논리적인 볼륨으로 바꿔 사용한다.
   *  LVM에선 여러 파티션을 하나의 논리적인 볼륨으로 묶은 뒤, 다시 필요한 크기만큼 나눠서 사용할 수 있다.
   *  <https://wiseworld.tistory.com/32>
   *  <https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html> - 완전 쉽게 정리된 블로그!
+
 * LVM의 목적
   1. 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
   2. 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
