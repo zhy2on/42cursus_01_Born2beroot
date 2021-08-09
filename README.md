@@ -75,10 +75,10 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * SSH란? - https://baked-corn.tistory.com/52
   * SSH 사용법 - http://programmingskills.net/archives/315
   ```shell
-  apt install openssh-server
-  systemctl status ssh
-  sudo vim /etc/ssh/sshd_config -> Port 4242
-  sudo systemctl restart ssh
+  $ apt install openssh-server #ssh 설치
+  $ systemctl status ssh #ssh 상태 보기
+  $ sudo vim /etc/ssh/sshd_config -> Port 4242 #4242 포트 활성화
+  $ sudo systemctl restart ssh #ssh 재시작
   ```
   * <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
 
@@ -86,14 +86,25 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
   * UFW 사용법 - https://webdir.tistory.com/206
   ```shell
-  sudo apt install ufw
-  sudo ufw status verbose
-  sudo ufw enable
-  sudo ufw default deny
-  sudo ufw allow 4242
+  $ sudo apt install ufw #ufw 설치
+  $ sudo ufw status verbose #ufw 상태 보기
+  $ sudo ufw enable #ufw 활성화
+  $ sudo ufw default deny #기본 incoming deny
+  $ sudo ufw allow 4242 #4242포트 ssh연결 허용
   ```
   * ![image](https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png)
 
-* group
-  * ![image](https://user-images.githubusercontent.com/52701529/128668645-9db924b2-4858-4cab-99d1-abbc1b344885.png)
+* group 추가
+  * https://linuxize.com/post/how-to-add-user-to-group-in-linux/
+  * Primary Group: 1개만 존재 해야 한다. 사용자가 로그인할 때, 파일 또는 디렉토리를 생성할 때 부여되는 기본 그룹이다.
+  * Secondary Groups: 없거나 여러 개 존재할 수 있습니다. 사용자가 파일 또는 디렉토리를 읽거나 쓰거나 실행할 때 지정된 그룹들의 권한을 받는다.
+  ```shell
+  $ groupadd user42 #user42라는 그룹 추가
+  $ sudo usermod -G sudo,user42 jihoh #jihoh가 속한 그룹을 sudo, user42로 변경. (-a(append)옵션 사용시 기존에 추가. 없이 사용시 그대로 변경)
+  $ sudo usermod -g user42 jihoh #user42를 primary group으로 설정
+  $ id jihoh #계정 정보 확인
+  ```
+  * ![image](https://user-images.githubusercontent.com/52701529/128673701-f78ef65a-4f08-4bd4-b89a-d58911b9a47c.png)
+
+* 
 
