@@ -74,11 +74,26 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * Secure Shell
   * SSH란? - https://baked-corn.tistory.com/52
   * SSH 사용법 - http://programmingskills.net/archives/315
+  ```shell
+  apt install openssh-server
+  systemctl status ssh
+  sudo vim /etc/ssh/sshd_config -> Port 4242
+  sudo systemctl restart ssh
+  ```
   * <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
 
 * UFW
   * UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
   * UFW 사용법 - https://webdir.tistory.com/206
+  ```shell
+  sudo apt install ufw
+  sudo ufw status verbose
+  sudo ufw enable
+  sudo ufw default deny
+  sudo ufw allow 4242
+  ```
   * ![image](https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png)
 
+* group
+  * ![image](https://user-images.githubusercontent.com/52701529/128668645-9db924b2-4858-4cab-99d1-abbc1b344885.png)
 
