@@ -7,13 +7,24 @@
 > CentOS가 좀 더 어렵습니다. SELinux(for CentOS) AppArmor(for Debian)도 시작시 실행되어야 합니다.
 * LVM을 사용하여 암호화 된 파티션을 2개 이상 만들어야 합니다.
 > 디펜스를 할 때 선택한 os에 대해 질문받을 수 있습니다. 예를 들어 aptitude와 apt의 차이, SELinux 또는 AppArmor이 무엇인지. 본인이 사용한 것을 이해해야 합니다.
-* SSH는 4242 port로만 실행합니다.
+* SSH는 4242 port로만 실행합니다. 보안상의 이유로 SSH를 루트로 사용하여 연결할 수 없어야합니다.
 > 디펜스하면서 새 계정을 설정하여 SSH를 사용해야 합니다. 따라서 작동 방식을 이해해야 합니다.
 * UFW 방화벽으로 운영체제를 구성해야하므로 4242 port만 열어둬야 합니다.
-> 가상머신을 돌릴 때 방화벽이 무조건 실행돼야 합니다.(CentOS의 경우 기본 방화벽 말고 UFW를 설치해야 한다. DNF가 필요합니다.)
+> 가상머신을 시작할 때 방화벽이 무조건 실행돼야 합니다.(CentOS의 경우 기본 방화벽 말고 UFW를 설치해야 합니다. DNF가 필요합니다.)
 * hostname은 42로 끝나야 합니다. 평가하는 동안 이 hostname을 수정해야 합니다.
 * root user외에 username으로 로그인한 사용자가 있어야 합니다.
 * 이 사용자는 user42 및 sudo 그룹에 속해야합니다.
+> 디펜스하는 동안 새로운 user를 만들고 그룹을 할당해야 합니다.
+* 강력한 암호정책을 설정하기 위해 다음을 따라야 합니다.
+   1. 30일마다 만기돼야 합니다.
+   2. 비밀번호를 다시 수정하기까지 최소 2일 이상 기다려야합니다.
+   3. user는 비밀번호 만기 7일 전 경고 메세지를 받아야 합니다.
+   4. 비밀번호는 10자 이상, 대문자와 소문자를 포함해야 합니다. 또한 3개 이상의 연속된 문자를 포함할 수 없습니다.
+   5. user의 이름을 포함할 수 없습니다.
+   6. 다음 규칙은 root 비밀번호에는 적용되지 않습니다.: 비밀번호는 최소 이전 비밀번호와 다른 문자가 7자 이상이어야 합니다.
+   7. root 또한 동일한 비밀번호 정책이 적용됩니다.
+> configuring files를 세팅한 다음에는 root를 포함한 모든 계정의 비밀번호를 바꿔야 합니다.
+
 
 ## 평가지
 https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2beroot.pdf
@@ -45,7 +56,6 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
     |-----------|-----|
     | ![image](https://user-images.githubusercontent.com/52701529/128634425-95790cf2-b901-4a37-aa99-f9c587deeec7.png) | https://m.blog.naver.com/nkkh159/220832107076 |
   * apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
-  * <img src="https://user-images.githubusercontent.com/52701529/128635909-47dd2e21-9f95-49e8-8512-e0a527bedb7c.png" width="500">
 
 * LVM
   *  Logical Volume Manager. 리눅스의 하드디스크 관리 기술. (리눅스에서는 RAID와 LVM을 사용한다고 한다.) (오.. 운체에서 배운 내용)
@@ -55,8 +65,20 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   *  <https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html> - 완전 쉽게 정리된 블로그!
 
 * LVM의 목적
-  1. 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
-  2. 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
-  3. 기존에 사용중인 디스크의 공간을 확장할 수 있어서(!!!)
- * <img src="https://user-images.githubusercontent.com/52701529/128603443-654431ba-acb7-411e-8653-8356852a4e5d.png" width="400">
+  * 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
+  * 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
+  * 기존에 사용중인 디스크의 공간을 확장할 수 있어서(!!!)
+  * <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
+
+* SSH
+  * Secure Shell
+  * SSH란? - https://baked-corn.tistory.com/52
+  * SSH 사용법 - http://programmingskills.net/archives/315
+  * <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
+
+* UFW
+  * UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
+  * UFW 사용법 - https://webdir.tistory.com/206
+  * ![image](https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png)
+
 
