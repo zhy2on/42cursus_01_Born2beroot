@@ -98,11 +98,11 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * hostnamectl - https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_hostnamectl
   ```shell
   $ hostname #현재 호스트네임 확인
-  $ sudo hostnamectl set-hostname wheel #호스트네임 변경
+  $ sudo hostnamectl set-hostname wil42 #호스트네임 변경
   $ hostname #바뀐 호스트네임 확인
   $ sudo reoobt #재부팅 시 바뀐 호스트네임을 확인 가능하다.
   ```
-  * ![image](https://user-images.githubusercontent.com/52701529/128822599-d0656d2b-08e7-49e6-b011-cd82ca85ba0a.png)
+  * ![image](https://user-images.githubusercontent.com/52701529/128824567-42df6165-472a-444b-a090-3c59fc5a2592.png)
 
 * group 추가
   * https://linuxize.com/post/how-to-add-user-to-group-in-linux/
