@@ -25,9 +25,9 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   |코어 라이브러리와 함께 동작하는 자유 사용자 인터페이스로, 데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
   |APT는 이진 파일로부터나 소스 코드 컴파일을 통하여 소프트웨어 패키지의 확인·구성·설치를 자동화함으로써 유닉스 계열 컴퓨터 시스템 상의 소프트웨어를 관리하는 작업을 단순하게 만든다.|앱티튜드는 특히 유연한 검색 패턴을 지원하는 검색 기능을 가지고 있다. 원래 데비안을 위해 개발되었지만, RPM 패키지 매니저 (RPM) 기반 배포판에서도 등장한다.|
   |![image](https://user-images.githubusercontent.com/52701529/128638891-8414af36-226f-4c4b-90bb-3ea35095c7c5.png)| ![image](https://user-images.githubusercontent.com/52701529/128633574-3b4eaaaf-6909-40ae-b86b-98b4b4f3b901.png)|
-  | apt 이스터에그ㅎㅎ | ㅇㅎ 가장 큰 차이가 프론트엔드 지원하는지! aptitude는 명령어 실행시키면 이렇게 프론트엔드 프로그램으로 실행할 수 있다. |
+  | apt 이스터에그🐮 | 가장 큰 차이가 프론트엔드 지원하는지! aptitude는 명령어 실행시키면 이렇게 프론트엔드 프로그램으로 실행할 수 있다. |
 * dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
-* http://taewan.kim/tip/apt-apt-get/ - 정리 잘 돼있음!
+* http://taewan.kim/tip/apt-apt-get/
   
 ### AppArmor
 * Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
@@ -42,12 +42,12 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 *  LVM은 디스크를 좀 더 유연하게 사용하기 위해 물리적인 파티션을 논리적인 볼륨으로 바꿔 사용한다.
 *  LVM에선 여러 파티션을 하나의 논리적인 볼륨으로 묶은 뒤, 다시 필요한 크기만큼 나눠서 사용할 수 있다.
 *  https://wiseworld.tistory.com/32
-*  https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html - 완전 쉽게 정리된 블로그!
+*  https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html
 
 ### LVM의 목적
 * 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
 * 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
-* 기존에 사용중인 디스크의 공간을 확장할 수 있어서(!!!)
+* 기존에 사용중인 디스크의 공간을 확장할 수 있어서(＊)
 <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
 
 ### SSH
