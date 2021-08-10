@@ -19,7 +19,7 @@
    1. 30일마다 만기돼야 합니다.
    2. 비밀번호를 다시 수정하기까지 최소 2일 이상 기다려야합니다.
    3. user는 비밀번호 만기 7일 전 경고 메세지를 받아야 합니다.
-   4. 비밀번호는 10자 이상, 대문자와 소문자를 포함해야 합니다. 또한 3개 이상의 연속된 문자를 포함할 수 없습니다.
+   4. 비밀번호는 10자 이상, 대문자와 숫자를 포함해야 합니다. 또한 3개 이상의 연속된 문자를 포함할 수 없습니다.
    5. user의 이름을 포함할 수 없습니다.
    6. 다음 규칙은 root 비밀번호에는 적용되지 않습니다.: 비밀번호는 최소 이전 비밀번호와 다른 문자가 7자 이상이어야 합니다.
    7. root 또한 동일한 비밀번호 정책이 적용됩니다.
@@ -39,7 +39,8 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 
 * aptitude / apt 차이
   * 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
-  * 패키지란? - https://koikebox.tistory.com/67 " 왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다. "
+  * 패키지란? - 커널 및 라이브러리 버전의 배포판 환경에 맞추어 빌드한 실행파일을 압축한 것이다. https://elandda.tistory.com/47
+  * "왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다." https://koikebox.tistory.com/67
   * |apt(Advanced Packaging Tool)|aptitude|
     |-----|------|
     |코어 라이브러리와 함께 동작하는 자유 사용자 인터페이스로, 데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
@@ -47,7 +48,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
     |![image](https://user-images.githubusercontent.com/52701529/128638891-8414af36-226f-4c4b-90bb-3ea35095c7c5.png)| ![image](https://user-images.githubusercontent.com/52701529/128633574-3b4eaaaf-6909-40ae-b86b-98b4b4f3b901.png)|
     | apt 이스터에그ㅎㅎ | ㅇㅎ 가장 큰 차이가 프론트엔드 지원하는지! aptitude는 명령어 실행시키면 이렇게 프론트엔드 프로그램으로 실행할 수 있다. |
   * dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
-  * http://taewan.kim/tip/apt-apt-get/ 정리 잘 돼있음!
+  * http://taewan.kim/tip/apt-apt-get/ - 정리 잘 돼있음!
   
 * AppArmor
   * AppArmor ("Application Armor")는 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
@@ -94,7 +95,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * ![image](https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png)
 
 * hostname 변경
-  * hostnama이란? - 인터넷에 접속된 수많은 컴퓨터들이 자신을 구별하기 위해 가지고 있는 것이 IP주소인데, IP대신 기억하기 쉽게 사용하는 것이 호스트네임이다. 
+  * hostname이란? - 인터넷에 접속된 수많은 컴퓨터들이 자신을 구별하기 위해 가지고 있는 것이 IP주소인데, IP대신 기억하기 쉽게 사용하는 것이 호스트네임이다. 
   * hostnamectl - https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_hostnamectl
   ```shell
   $ hostname #현재 호스트네임 확인
@@ -116,5 +117,30 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   ```
   * ![image](https://user-images.githubusercontent.com/52701529/128673701-f78ef65a-4f08-4bd4-b89a-d58911b9a47c.png)
 
-* 
+* 비밀번호 정책
+  1. 30일 만료일
+  2. 한 번 바꾸고 나면 2일 뒤에 변경 가능
+  3. 만료 7일 전 경고메세지
+  4. 최소 10자리 이상, 대문자 숫자 필수, 3개 이상 연속 문자X
+  5. 유저 이름 포함X
+  6. 이전 비밀번호와 최소 7자 이상 다르게
+  7. root또한 동일한 정책 적용
 
+* 비밀번호 정책 설정
+  * /etc/login.defs - https://dgblog.tistory.com/121
+  ```shell
+  $ sudo vi /etc/login.defs
+  PASS_MAX_DAYS 30 #만료일
+  PASS_MIN_DAYS 2 #최소 사용일
+  PASS_WARN_AGE 7 #경고 메세지
+  PASS_MIN_LEN 10 #최소 글자수
+  ```
+  * ![image](https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png)
+  * https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
+  ```shell
+  $ sudo apt install libpam-pwquality cracklib-runtime #libpam-pwquality 설치
+  $ sudo vim /etc/pam.d/common-password #
+  password    requisite      pam_pwquality.so minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 difok=7 reject_username enforce_for_root
+  #minlen 최소길이 ucredit 대문자 =-1 최소 하나이상 dcredit 숫자 =-1 최소 하나 이상 maxrepeat 반복제한 difok 이전 비밀번호와 겹치는 글자 제한 reject_username 유저네임 포함 제한 enforce_for_root 루트에도 적용
+  ```
+  * ![image](https://user-images.githubusercontent.com/52701529/128835736-47923e4d-4782-497c-8d9b-d33ed8ebe04c.png)
