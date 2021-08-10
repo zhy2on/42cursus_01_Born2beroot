@@ -136,11 +136,24 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   PASS_MIN_LEN 10 #최소 글자수
   ```
   * ![image](https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png)
-  * https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
+  * /etc/pam.d/common-password - https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
   ```shell
   $ sudo apt install libpam-pwquality cracklib-runtime #libpam-pwquality 설치
-  $ sudo vim /etc/pam.d/common-password #
+  $ sudo vim /etc/pam.d/common-password
   password    requisite      pam_pwquality.so minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 difok=7 reject_username enforce_for_root
   #minlen 최소길이 ucredit 대문자 =-1 최소 하나이상 dcredit 숫자 =-1 최소 하나 이상 maxrepeat 반복제한 difok 이전 비밀번호와 겹치는 글자 제한 reject_username 유저네임 포함 제한 enforce_for_root 루트에도 적용
   ```
-  * ![image](https://user-images.githubusercontent.com/52701529/128835736-47923e4d-4782-497c-8d9b-d33ed8ebe04c.png)
+  * <img src="https://user-images.githubusercontent.com/52701529/128835736-47923e4d-4782-497c-8d9b-d33ed8ebe04c.png" width="700">
+  * 비밀번호 정책은 변경된 이후 계정부터 적용된다. 기존 계정들에 적용하기 위해 비밀번호를 만료시켜버린다.
+  ```shell
+  $ passwd -e [username] #passwd -e (expire) 비밀번호 만료 옵션.
+  ```
+  * /etc/login.defs 내용도 기존 계정들은 따로 적용해줘야 한다.
+  ```shell
+  $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
+  ```
+  * <img src="https://user-images.githubusercontent.com/52701529/128839281-cd0742ce-23fa-4f4e-9ae7-ba53b682994f.png" width="400">
+
+* 
+  
+  
