@@ -58,11 +58,11 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
 
 * LVM
-  *  Logical Volume Manager. 리눅스의 하드디스크 관리 기술. (리눅스에서는 RAID와 LVM을 사용한다고 한다.) (오.. 운체에서 배운 내용)
+  *  LVM이란? - Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
   *  LVM은 디스크를 좀 더 유연하게 사용하기 위해 물리적인 파티션을 논리적인 볼륨으로 바꿔 사용한다.
   *  LVM에선 여러 파티션을 하나의 논리적인 볼륨으로 묶은 뒤, 다시 필요한 크기만큼 나눠서 사용할 수 있다.
-  *  <https://wiseworld.tistory.com/32>
-  *  <https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html> - 완전 쉽게 정리된 블로그!
+  *  https://wiseworld.tistory.com/32
+  *  https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html - 완전 쉽게 정리된 블로그!
 
 * LVM의 목적
   * 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
@@ -71,8 +71,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
 
 * SSH
-  * Secure Shell
-  * SSH란? - https://baked-corn.tistory.com/52
+  * SSH란? - Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. https://baked-corn.tistory.com/52
   * SSH 사용법 - http://programmingskills.net/archives/315
   ```shell
   $ apt install openssh-server #ssh 설치
@@ -83,7 +82,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   * <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
 
 * UFW
-  * UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
+  * UFW란? - Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
   * UFW 사용법 - https://webdir.tistory.com/206
   ```shell
   $ sudo apt install ufw #ufw 설치
@@ -94,10 +93,21 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   ```
   * ![image](https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png)
 
+* hostname 변경
+  * hostnama이란? - 인터넷에 접속된 수많은 컴퓨터들이 자신을 구별하기 위해 가지고 있는 것이 IP주소인데, IP대신 기억하기 쉽게 사용하는 것이 호스트네임이다. 
+  * hostnamectl - https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_hostnamectl
+  ```shell
+  $ hostname #현재 호스트네임 확인
+  $ sudo hostnamectl set-hostname wheel #호스트네임 변경
+  $ hostname #바뀐 호스트네임 확인
+  $ sudo reoobt #재부팅 시 바뀐 호스트네임을 확인 가능하다.
+  ```
+  * ![image](https://user-images.githubusercontent.com/52701529/128822599-d0656d2b-08e7-49e6-b011-cd82ca85ba0a.png)
+
 * group 추가
   * https://linuxize.com/post/how-to-add-user-to-group-in-linux/
   * Primary Group: 1개만 존재 해야 한다. 사용자가 로그인할 때, 파일 또는 디렉토리를 생성할 때 부여되는 기본 그룹이다.
-  * Secondary Groups: 없거나 여러 개 존재할 수 있습니다. 사용자가 파일 또는 디렉토리를 읽거나 쓰거나 실행할 때 지정된 그룹들의 권한을 받는다.
+  * Secondary Groups: 없거나 여러 개 존재할 수 있다. 사용자가 파일 또는 디렉토리를 읽거나 쓰거나 실행할 때 지정된 그룹들의 권한을 받는다.
   ```shell
   $ groupadd user42 #user42라는 그룹 추가
   $ sudo usermod -G sudo,user42 jihoh #jihoh가 속한 그룹을 sudo, user42로 변경. (-a(append)옵션 사용시 기존에 추가. 없이 사용시 그대로 변경)
