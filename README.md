@@ -142,7 +142,7 @@ $ apt install sudo #sudo 설치
 $ dpkg -l | grep sudo #sudo 설치 여부 확인
 $ mkdir /var/log/sudo #log file을 저장할 디렉토리 생성
 $ export EDITOR=vim #EDITOR 환경 변수를 설정하여 visudo를 사용할 편집기를 vim으로 수정한다.
-$ visudo #visudo 명령어를 이용하여 /etc/sudoers 파일 변경 
+$ sudo -E visudo #visudo 명령어를 이용하여 /etc/sudoers 파일 변경 -E옵션을 이용해 sudo에서 현재 환경변수를 그대로 사용.
 ```
 ```shell
 Defaults    env_reset #기본 설정. sudo 권한으로 실행시 HOME, PATH, SHELL, TERM, USER를 제외한 모든 환경 변수를 reset시킨다. 현재 실행중인 환경 변수를 그대로 사용하자고 한다면 주석처리 하면 되지만, 더 안전한 env_keep이 권장된다.
@@ -150,9 +150,10 @@ Defaults    mail_badpass #기본 설정. sudo를 실행중인 사용자가 잘�
 Defaults    secure_path"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" #sudo로 실행되는 명령어 경로 제한
 Defaults    passwd_tries=3 #sudo 비밀번호 시도 제한
 Defaults    badpass_message="Pa55w0rd i5 wr0ng, p1ea5e try a9ain" #잘못된 sudo 비밀번호 입력시 custom message 출력
-Defaults    log_input #sudo 이용한 user input과
-Defaults    log_output #output을 저장. default I/O log dir은 /var/log/sudo-io
+Defaults    authfail_message="Authenticati0n attempti0n i5 fai1ed, p1ea5e try a9ain" #연속으로 잘못된 비밀번호 입력으로 인증 실패시 custom message 출력
+Defaults    log_input, log_output #sudo 이용한 user input과 output을 저장. default I/O log dir은 /var/log/sudo-io
 Defaults    iolog_dir="/var/log/sudo/" #I/O log directory 변경
 Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실행을 허용한다.
 ```
-<img visudo src="https://user-images.githubusercontent.com/52701529/128910228-67162c2e-fc7c-4e3d-8c31-94c7cc218f18.png" width="600">
+<img visudo src="https://user-images.githubusercontent.com/52701529/128920520-b4053054-4e9e-4c5a-94ed-7fab93b06f51.png" width="600">
+<img visudo src="https://user-images.githubusercontent.com/52701529/128919723-f81970b3-d44b-4363-be95-18aa69c68640.png" width="400">
