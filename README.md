@@ -71,7 +71,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   $ sudo ufw default deny #기본 incoming deny
   $ sudo ufw allow 4242 #4242포트 ssh연결 허용
   ```
-  ![image](https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png)
+  <img src="https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png" width="300">
 
 ### hostname 변경
   * hostname이란? - 인터넷에 접속된 수많은 컴퓨터들이 자신을 구별하기 위해 가지고 있는 것이 IP주소인데, IP대신 기억하기 쉽게 사용하는 것이 호스트네임이다. 
@@ -94,7 +94,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   $ sudo usermod -g user42 jihoh #user42를 primary group으로 설정
   $ id jihoh #계정 정보 확인
   ```
-  ![image](https://user-images.githubusercontent.com/52701529/128673701-f78ef65a-4f08-4bd4-b89a-d58911b9a47c.png)
+  <img src="https://user-images.githubusercontent.com/52701529/128673701-f78ef65a-4f08-4bd4-b89a-d58911b9a47c.png" width="450">
 
 ### 비밀번호 정책
   * /etc/login.defs - https://dgblog.tistory.com/121
@@ -106,7 +106,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   PASS_WARN_AGE 7 #경고 메세지
   PASS_MIN_LEN 10 #최소 글자수
   ```
-  ![image](https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png)
+  <img src="https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png" width="150">
   * /etc/pam.d/common-password - https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
   
   ```shell
