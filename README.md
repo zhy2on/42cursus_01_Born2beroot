@@ -30,7 +30,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 * http://taewan.kim/tip/apt-apt-get/ - 정리 잘 돼있음!
   
 ### AppArmor
-* AppArmor ("Application Armor")는 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
+* Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
 * APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
 * | 설치 오류 | 해결 |
   |-----------|-----|
@@ -38,7 +38,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 * apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
 
 ### LVM
-*  LVM이란? - Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
+*  Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
 *  LVM은 디스크를 좀 더 유연하게 사용하기 위해 물리적인 파티션을 논리적인 볼륨으로 바꿔 사용한다.
 *  LVM에선 여러 파티션을 하나의 논리적인 볼륨으로 묶은 뒤, 다시 필요한 크기만큼 나눠서 사용할 수 있다.
 *  https://wiseworld.tistory.com/32
@@ -51,7 +51,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
 
 ### SSH
-* SSH란? - Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. https://baked-corn.tistory.com/52
+* Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. https://baked-corn.tistory.com/52
 * SSH 사용법 - http://programmingskills.net/archives/315
 ```shell
 $ apt install openssh-server #ssh 설치
@@ -62,7 +62,7 @@ $ sudo systemctl restart ssh #ssh 재시작
 <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
 
 ### UFW
-* UFW란? - Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
+* Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
 * UFW 사용법 - https://webdir.tistory.com/206
 ```shell
 $ sudo apt install ufw #ufw 설치
@@ -130,11 +130,12 @@ $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
 <img src="https://user-images.githubusercontent.com/52701529/128839281-cd0742ce-23fa-4f4e-9ae7-ba53b682994f.png" width="400">
   
 ### sudo configuration
+* securepath - sudo 명령은 현재 계정의 쉘이 아닌 가상 쉘을 생성하고 그 안에서 실행된다. 이때 이 가상 쉘의 환경변수 PATH의 값을  secure_path 옵션을 통해 지정한다.
 * man sudoers - https://www.sudo.ws/man/1.8.15/sudoers.man.html#mail_no_user
 * 10 Useful Sudoers Configurations for Setting ‘sudo’ in Linux - https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/
 * log file이란? - 운영 체제나 다른 소프트웨어가 실행 중에 발생하는 이벤트나 각기 다른 사용자의 통신 소프트웨어 간의 메시지를 기록한 파일이다. 로그를 기록하는 행위는 로깅(logging)이라고 한다.
 * visudo - /etc/sudoers 파일을 수정하는 명령어이다. /etc/sudoers 파일은 기본적으로 쓰기 권한이 없기 때문에 기존에 있는 리눅스 편집기인 'vi'나 'nano'를 사용하지 않고 visudo 명령어를 사용한다. 권한을 바꾸고 다시 돌려놓는 방법도 있지만 /etc/sudoers에서도 애초에 visudo를 권장한다.
-* tty / pts - https://codedragon.tistory.com/4211
+* tty / pts - https://codedragon.tistory.com/4211 
     * <img src="https://user-images.githubusercontent.com/52701529/128916391-42dccb1f-7de8-408a-9bfc-3f2fa039b818.png" width="400">
 ```shell
 $ su #root 계정 전환
@@ -147,7 +148,7 @@ $ sudo -E visudo #visudo 명령어를 이용하여 /etc/sudoers 파일 변경 -E
 ```shell
 Defaults    env_reset #기본 설정. sudo 권한으로 실행시 HOME, PATH, SHELL, TERM, USER를 제외한 모든 환경 변수를 reset시킨다. 현재 실행중인 환경 변수를 그대로 사용하자고 한다면 주석처리 하면 되지만, 더 안전한 env_keep이 권장된다.
 Defaults    mail_badpass #기본 설정. sudo를 실행중인 사용자가 잘못된 암호 입력시 malito 사용자에게 메일을 보낸다. 기본적으로 이 기능은 꺼져있다.
-Defaults    secure_path"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" #sudo로 실행되는 명령어 경로 제한
+Defaults    secure_path"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" #sudo로 실행되는 명령어 경로 제한.
 Defaults    passwd_tries=3 #sudo 비밀번호 시도 제한
 Defaults    badpass_message="Pa55w0rd i5 wr0ng, p1ea5e try a9ain" #잘못된 sudo 비밀번호 입력시 custom message 출력
 Defaults    authfail_message="Authenticati0n attempti0n i5 fai1ed, p1ea5e try a9ain" #연속으로 잘못된 비밀번호 입력으로 인증 실패시 custom message 출력
@@ -157,3 +158,12 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
 ```
 <img visudo src="https://user-images.githubusercontent.com/52701529/128920520-b4053054-4e9e-4c5a-94ed-7fab93b06f51.png" width="600">
 <img visudo src="https://user-images.githubusercontent.com/52701529/128919723-f81970b3-d44b-4363-be95-18aa69c68640.png" width="400">
+
+* log파일은 /var/log/sudo/00/00에 명령어당 한 폴더가 생성되어 저장된다.
+  * log - sudo 명령어 실행 위치가 저장된다.
+  * stderr - 표준 에러 발생시 기록된다.
+  * stdin, stdout - 표준 입출력 발생시 기록된다.
+  * ttyin, ttyout - tty 입출력 발생시 기록된다.
+  * timing - 명령어 실행시간과 관련 있는 것 같다.
+<img visudo src="https://user-images.githubusercontent.com/52701529/128922526-581e92fa-e417-4b09-9a26-27e2de3e896a.png" width="300">
+
