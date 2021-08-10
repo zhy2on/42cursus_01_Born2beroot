@@ -19,11 +19,11 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 ### aptitude / apt 차이
 * 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
 * 패키지란? - 커널 및 라이브러리 버전의 배포판 환경에 맞추어 빌드한 실행파일을 압축한 것이다. https://elandda.tistory.com/47
-* "왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다." https://koikebox.tistory.com/67
+* "왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다." - https://koikebox.tistory.com/67
 * |apt(Advanced Packaging Tool)|aptitude|
   |-----|------|
-  |코어 라이브러리와 함께 동작하는 자유 사용자 인터페이스로, 데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
-  |APT는 이진 파일로부터나 소스 코드 컴파일을 통하여 소프트웨어 패키지의 확인·구성·설치를 자동화함으로써 유닉스 계열 컴퓨터 시스템 상의 소프트웨어를 관리하는 작업을 단순하게 만든다.|앱티튜드는 특히 유연한 검색 패턴을 지원하는 검색 기능을 가지고 있다. 원래 데비안을 위해 개발되었지만, RPM 패키지 매니저 (RPM) 기반 배포판에서도 등장한다.|
+  |데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
+  |APT는 이진 파일로부터나 소스 코드 컴파일을 통하여 소프트웨어 패키지의 확인·구성·설치를 자동화함으로써 유닉스 계열 컴퓨터 시스템 상의 소프트웨어를 관리하는 작업을 단순하게 만든다.|앱티튜드는 특히 유연한 검색 패턴을 지원하는 검색 기능을 가지고 있다.|
   |![image](https://user-images.githubusercontent.com/52701529/128638891-8414af36-226f-4c4b-90bb-3ea35095c7c5.png)| ![image](https://user-images.githubusercontent.com/52701529/128633574-3b4eaaaf-6909-40ae-b86b-98b4b4f3b901.png)|
   | apt 이스터에그🐮 | 가장 큰 차이가 프론트엔드 지원하는지! aptitude는 명령어 실행시키면 이렇게 프론트엔드 프로그램으로 실행할 수 있다. |
 * dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
@@ -32,10 +32,6 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 ### AppArmor
 * Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
 * APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
-* | 설치 오류 | 해결 |
-  |-----------|-----|
-  | ![image](https://user-images.githubusercontent.com/52701529/128634425-95790cf2-b901-4a37-aa99-f9c587deeec7.png) | https://m.blog.naver.com/nkkh159/220832107076 |
-* apparmor tutorial - https://wiki.debian.org/AppArmor/HowToUse#Install_AppArmor https://linuxhint.com/debian_apparmor_tutorial/
 
 ### LVM
 *  Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
@@ -47,7 +43,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 ### LVM의 목적
 * 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
 * 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
-* 기존에 사용중인 디스크의 공간을 확장할 수 있어서(＊)
+* 기존에 사용중인 디스크의 공간을 확장할 수 있어서＊
 <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
 
 ### SSH
@@ -97,7 +93,7 @@ $ id jihoh #계정 정보 확인
 <img src="https://user-images.githubusercontent.com/52701529/128673701-f78ef65a-4f08-4bd4-b89a-d58911b9a47c.png" width="450">
 
 ### 비밀번호 정책
-* /etc/login.defs - https://dgblog.tistory.com/121
+* https://dgblog.tistory.com/121
 ```shell
 $ sudo vi /etc/login.defs
 PASS_MAX_DAYS 30 #만료일
@@ -106,7 +102,8 @@ PASS_WARN_AGE 7 #경고 메세지
 PASS_MIN_LEN 10 #최소 글자수
 ```
 <img src="https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png" width="150">
-* /etc/pam.d/common-password - https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
+
+* https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
 
 ```shell
 $ sudo apt install libpam-pwquality cracklib-runtime #libpam-pwquality 설치
@@ -131,11 +128,12 @@ $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
   
 ### sudo configuration
 * securepath - sudo 명령은 현재 계정의 쉘이 아닌 가상 쉘을 생성하고 그 안에서 실행된다. 이때 이 가상 쉘의 환경변수 PATH의 값을  secure_path 옵션을 통해 지정한다.
-* man sudoers - https://www.sudo.ws/man/1.8.15/sudoers.man.html#mail_no_user
-* 10 Useful Sudoers Configurations for Setting ‘sudo’ in Linux - https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/
+* https://www.sudo.ws/man/1.8.15/sudoers.man.html#mail_no_user
+* https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/
 * log file이란? - 운영 체제나 다른 소프트웨어가 실행 중에 발생하는 이벤트나 각기 다른 사용자의 통신 소프트웨어 간의 메시지를 기록한 파일이다. 로그를 기록하는 행위는 로깅(logging)이라고 한다.
 * visudo - /etc/sudoers 파일을 수정하는 명령어이다. /etc/sudoers 파일은 기본적으로 쓰기 권한이 없기 때문에 기존에 있는 리눅스 편집기인 'vi'나 'nano'를 사용하지 않고 visudo 명령어를 사용한다. 권한을 바꾸고 다시 돌려놓는 방법도 있지만 /etc/sudoers에서도 애초에 visudo를 권장한다.
-* tty / pts - https://codedragon.tistory.com/4211 
+* tty / pts
+    * https://codedragon.tistory.com/4211 
     * <img src="https://user-images.githubusercontent.com/52701529/128916391-42dccb1f-7de8-408a-9bfc-3f2fa039b818.png" width="400">
 ```shell
 $ su #root 계정 전환
@@ -159,7 +157,7 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
 <img visudo src="https://user-images.githubusercontent.com/52701529/128920520-b4053054-4e9e-4c5a-94ed-7fab93b06f51.png" width="600">
 <img visudo src="https://user-images.githubusercontent.com/52701529/128919723-f81970b3-d44b-4363-be95-18aa69c68640.png" width="400">
 
-* log파일은 /var/log/sudo/00/00에 명령어당 한 폴더가 생성되어 저장된다.
+* log파일은 /var/log/sudo/00/00에 명령어당 한 폴더씩 생성되어 저장된다.
   * log - sudo 명령어 실행 위치가 저장된다.
   * stderr - 표준 에러 발생시 기록된다.
   * stdin, stdout - 표준 입출력 발생시 기록된다.
@@ -167,3 +165,5 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
   * timing - 명령어 실행시간과 관련 있는 것 같다.
 <img visudo src="https://user-images.githubusercontent.com/52701529/128922526-581e92fa-e417-4b09-9a26-27e2de3e896a.png" width="300">
 
+### monitoring.sh
+  * 
