@@ -10,17 +10,17 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 
 ## 자료 정리
 ### Debian / CentOS
-* | Debian | CentOS|
+  | Debian | CentOS|
   |--------|-------|
   |데비안(영어: Debian)은 데비안 프로젝트가 개발한 자유(free) 컴퓨터 운영 체제이다.| 센트OS(영어: CentOS)는 센트OS 프로젝트에서 레드햇 제휴로 개발한 컴퓨터 운영 체제이다. |
   |데비안은 안정성과 보안에 중점을 두며 사용자 편리성이 강한 우분투등 다른 많은 리눅스 배포판의 기반으로 쓰이고 있다. | 업스트림 소스인 레드햇 엔터프라이즈 리눅스와 완벽하게 호환되는 무료 기업용 컴퓨팅 플랫폼을 제공할 목적으로 만들어진 리눅스계 운영 체제 가운데 하나다. |
   | 현재 버전: 10.0	커널: 4.19 | 현재 버전: 8.0-1905	커널: 4.18.0-80|
 
 ### aptitude / apt 차이
-* 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
+패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
 * 패키지란? - 커널 및 라이브러리 버전의 배포판 환경에 맞추어 빌드한 실행파일을 압축한 것이다. https://elandda.tistory.com/47
-* "왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다." - https://koikebox.tistory.com/67
-* |apt(Advanced Packaging Tool)|aptitude|
+* "왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다." - https://koikebox.tistory.com/67  
+|apt(Advanced Packaging Tool)|aptitude|
   |-----|------|
   |데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
   |APT는 이진 파일로부터나 소스 코드 컴파일을 통하여 소프트웨어 패키지의 확인·구성·설치를 자동화함으로써 유닉스 계열 컴퓨터 시스템 상의 소프트웨어를 관리하는 작업을 단순하게 만든다.|앱티튜드는 특히 유연한 검색 패턴을 지원하는 검색 기능을 가지고 있다.|
@@ -30,11 +30,11 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 * http://taewan.kim/tip/apt-apt-get/
   
 ### AppArmor
-* Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.
+Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.  
 * APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
 
 ### LVM
-*  Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
+Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
 *  LVM은 디스크를 좀 더 유연하게 사용하기 위해 물리적인 파티션을 논리적인 볼륨으로 바꿔 사용한다.
 *  LVM에선 여러 파티션을 하나의 논리적인 볼륨으로 묶은 뒤, 다시 필요한 크기만큼 나눠서 사용할 수 있다.
 *  https://wiseworld.tistory.com/32
@@ -47,7 +47,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
 
 ### SSH
-* Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. https://baked-corn.tistory.com/52
+Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. - https://baked-corn.tistory.com/52
 * SSH 사용법 - http://programmingskills.net/archives/315
 ```shell
 $ apt install openssh-server #ssh 설치
@@ -58,7 +58,7 @@ $ sudo systemctl restart ssh #ssh 재시작
 <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
 
 ### UFW
-* Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
+Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
 * UFW 사용법 - https://webdir.tistory.com/206
 ```shell
 $ sudo apt install ufw #ufw 설치
@@ -109,7 +109,7 @@ PASS_MIN_LEN 10 #최소 글자수
 $ sudo apt install libpam-pwquality cracklib-runtime #libpam-pwquality 설치
 $ sudo vim /etc/pam.d/common-password
 password    requisite      pam_pwquality.so minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 difok=7 reject_username enforce_for_root
-#minlen 최소길이 ucredit 대문자 =-1 최소 하나이상 dcredit 숫자 =-1 최소 하나 이상 maxrepeat 반복제한 difok 이전 비밀번호와 겹치는 글자 제한 reject_username 유저네임 포함 제한 enforce_for_root 루트에도 적용
+#minlen 최소길이 ucredit 대문자 =-1 최소 하나이상 dcredit 숫자 =-1 최소 하나 이상 maxrepeat 반복제한 difok 이전 비밀번호와 겹치는 글자 제한 reject_username 유저네임 그대로 of 거꾸로 포함 제한 enforce_for_root 루트에도 적용
 ```
 
 <img src="https://user-images.githubusercontent.com/52701529/128835736-47923e4d-4782-497c-8d9b-d33ed8ebe04c.png" width="700">
@@ -127,14 +127,14 @@ $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
 <img src="https://user-images.githubusercontent.com/52701529/128839281-cd0742ce-23fa-4f4e-9ae7-ba53b682994f.png" width="400">
   
 ### sudo configuration
-* securepath - sudo 명령은 현재 계정의 쉘이 아닌 가상 쉘을 생성하고 그 안에서 실행된다. 이때 이 가상 쉘의 환경변수 PATH의 값을  secure_path 옵션을 통해 지정한다.
+* securepath : sudo 명령은 현재 계정의 쉘이 아닌 가상 쉘을 생성하고 그 안에서 실행된다. 이때 이 가상 쉘의 환경변수 PATH의 값을  secure_path 옵션을 통해 지정한다.
 * https://www.sudo.ws/man/1.8.15/sudoers.man.html#mail_no_user
 * https://www.tecmint.com/sudoers-configurations-for-setting-sudo-in-linux/
 * log file이란? - 운영 체제나 다른 소프트웨어가 실행 중에 발생하는 이벤트나 각기 다른 사용자의 통신 소프트웨어 간의 메시지를 기록한 파일이다. 로그를 기록하는 행위는 로깅(logging)이라고 한다.
 * visudo - /etc/sudoers 파일을 수정하는 명령어이다. /etc/sudoers 파일은 기본적으로 쓰기 권한이 없기 때문에 기존에 있는 리눅스 편집기인 'vi'나 'nano'를 사용하지 않고 visudo 명령어를 사용한다. 권한을 바꾸고 다시 돌려놓는 방법도 있지만 /etc/sudoers에서도 애초에 visudo를 권장한다.
 * tty / pts
     * https://codedragon.tistory.com/4211 
-    * <img src="https://user-images.githubusercontent.com/52701529/128916391-42dccb1f-7de8-408a-9bfc-3f2fa039b818.png" width="400">
+    <img src="https://user-images.githubusercontent.com/52701529/128916391-42dccb1f-7de8-408a-9bfc-3f2fa039b818.png" width="400">
 ```shell
 $ su #root 계정 전환
 $ apt install sudo #sudo 설치
@@ -166,4 +166,14 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
 <img visudo src="https://user-images.githubusercontent.com/52701529/128922526-581e92fa-e417-4b09-9a26-27e2de3e896a.png" width="300">
 
 ### monitoring.sh
+서브젝트에서 요구하는대로 출력할 monitoring 스크립트를 만든다.
+  * mpstat - sysstat 패키지 필요, ifconfig - net-tools 패키지 필요
+  * ``uname -a`` : 시스템 정보(os architecure and kernel version)를 출력한다. a옵션의 내용은 아래와 같다.  
+    * https://hippogrammer.tistory.com/79  
+    * <img visudo src="https://user-images.githubusercontent.com/52701529/129062145-14f94c0f-ddf3-4c95-974b-e482a6b94fa3.png" width="600">
+    * 커널 릴리즈와 커널 버전 순서가 바뀐 것 같다.. 제타위키에도 주석 처리가 되어 있다.
+  * ``grep "physical id" /proc/cpuinfo | sort -u | wc -l`` : 물리 프로세서 수를 출력한다.
+  * ``grep "^processor" /proc/cpuinfo | wc -l`` : 가상 프로세서 수를 출력한다.
+    * https://developpaper.com/how-to-view-the-physical-cpu-logical-cpu-and-cpu-number-of-linux-servers/
+    * physical vs virtual processor : 하이퍼스레딩을 통해 각 물리적 코어에서 실행할 수 있는 스레드 수를 곱한 것이 논리적 코어라고 한다. 예를 들어 4코어 프로세서에서 코어당 2개의 스레드를 실행하면 8개의 논리 프로세서가 있다고 생각한다. virtual processor = logical processor 같은 의미로 사용되는 것 같다.
   * 
