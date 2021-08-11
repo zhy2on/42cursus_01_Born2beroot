@@ -167,13 +167,28 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
 
 ### monitoring.sh
 서브젝트에서 요구하는대로 출력할 monitoring 스크립트를 만든다.
-  * mpstat - sysstat 패키지 필요, ifconfig - net-tools 패키지 필요
-  * ``uname -a`` : 시스템 정보(os architecure and kernel version)를 출력한다. a옵션의 내용은 아래와 같다.  
-    * https://hippogrammer.tistory.com/79  
-    * <img visudo src="https://user-images.githubusercontent.com/52701529/129062145-14f94c0f-ddf3-4c95-974b-e482a6b94fa3.png" width="600">
-    * 커널 릴리즈와 커널 버전 순서가 바뀐 것 같다.. 제타위키에도 주석 처리가 되어 있다.
-  * ``grep "physical id" /proc/cpuinfo | sort -u | wc -l`` : 물리 프로세서 수를 출력한다.
-  * ``grep "^processor" /proc/cpuinfo | wc -l`` : 가상 프로세서 수를 출력한다.
-    * https://developpaper.com/how-to-view-the-physical-cpu-logical-cpu-and-cpu-number-of-linux-servers/
-    * physical vs virtual processor : 하이퍼스레딩을 통해 각 물리적 코어에서 실행할 수 있는 스레드 수를 곱한 것이 논리적 코어라고 한다. 예를 들어 4코어 프로세서에서 코어당 2개의 스레드를 실행하면 8개의 논리 프로세서가 있다고 생각한다. virtual processor = logical processor 같은 의미로 사용되는 것 같다.
-  * 
+* mpstat - sysstat 패키지 필요, ifconfig - net-tools 패키지 필요  
+
+```shell
+$ uname -a #시스템 정보(os architecure and kernel version)를 출력한다.
+```  
+
+* a옵션의 내용은 아래와 같다.  
+* https://hippogrammer.tistory.com/79  
+<img visudo src="https://user-images.githubusercontent.com/52701529/129062145-14f94c0f-ddf3-4c95-974b-e482a6b94fa3.png" width="600"> 커널 릴리즈와 커널 버전 순서가 바뀐 것 같다.. 제타위키에도 주석이 달려있다.
+
+```shell
+$ grep "physical id" /proc/cpuinfo | sort -u | wc -l #물리 프로세서 수를 출력한다.
+$ grep "^processor" /proc/cpuinfo | wc -l #가상 프로세서 수를 출력한다.
+```  
+
+* physical vs virtual processor : 하이퍼스레딩을 통해 각 물리적 코어에서 실행할 수 있는 스레드 수를 곱한 것이 논리적 코어라고 한다. 예를 들어 4코어 프로세서에서 코어당 2개의 스레드를 실행하면 8개의 논리 프로세서가 있다고 생각한다. virtual processor = logical processor 같은 의미로 사용되는 것 같다.
+* https://unix.stackexchange.com/questions/88283/so-what-are-logical-cpu-cores-as-opposed-to-physical-cpu-cores
+* https://developpaper.com/how-to-view-the-physical-cpu-logical-cpu-and-cpu-number-of-linux-servers/
+
+```shell
+$ free -m | grep Mem | awk '{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
+```
+
+* free는 메모리 사용량을 알 수 있는 명령어이다. -m 옵션을 통해 메가바이트 단위로 출력한다.
+* grep Mem으로 memory 관련 부분을 찾고 awk를 이용해 데이터를 알맞게 조작한다. $2 $3은 두 번째 필드, 세 번째 필드를 뜻한다.
