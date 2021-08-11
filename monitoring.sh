@@ -4,10 +4,10 @@ printf "#Architecture: "
 uname -a
 
 printf "#CPU physical : "
-nproc --all
+grep "physical id" /proc/cpuinfo | sort -u | wc -l
 
 printf "#vCPU : "
-cat /proc/cpuinfo | grep processor | wc -l
+grep "^processor" /proc/cpuinfo | wc -l
 
 printf "#Memory Usage: "
 free -m | grep Mem | awk '{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
@@ -24,10 +24,10 @@ printf "#CPU load: "
 mpstat | grep all | awk '{printf "%.2f%%\n", 100-$13}'
 
 printf "#Last boot: "
-who -b | sed 's/ system boot //g'
+who -b | sed 's/^ *system boot //g'
 
 printf "#LVM use: "
-if [ "$(lsblk | grep lbm | wc -l)" -gt 0 ] ; then printf "yes\n" ; else printf "no\n" ; fi
+if [ "$(sudo lvscan | grep -i ACTIVE | wc -l)" -gt 0 ] ; then printf "yes\n" ; else printf "no\n" ; fi
 
 printf "#Connections TCP : "
 ss -t | grep -i ESTAB | wc -l | tr -d '\n'
