@@ -169,7 +169,7 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
 서브젝트에서 요구하는대로 출력할 monitoring 스크립트를 만든다.
 
 ```shell
-$ uname -a #시스템 정보(os architecure and kernel version)를 출력한다.
+arc=$(uname -a)
 ```  
 
 * a옵션의 내용은 아래와 같다.  
@@ -177,10 +177,12 @@ $ uname -a #시스템 정보(os architecure and kernel version)를 출력한다.
 <img visudo src="https://user-images.githubusercontent.com/52701529/129062145-14f94c0f-ddf3-4c95-974b-e482a6b94fa3.png" width="600"> 커널 릴리즈와 커널 버전 순서가 바뀐 것 같다.. 제타위키에도 주석이 달려있다.
 
 ```shell
-pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l) #물리 cpu 수
-vcpu=$(grep "^processor" /proc/cpuinfo | wc -l) #가상 cpu 수
+pcpu=$(grep 'physical id' /proc/cpuinfo | sort -u | wc -l)
+vcpu=$(grep 'processor' /proc/cpuinfo | wc -l)
 ```  
 
+* /proc/cupinfo에서 physical id를 찾아 중복을 제외하고 세어 주면 물리 cpu수를 구할 수 있다.
+* 가상 CPU는 /proc/cpuinfo에서 processor를 찾아 세어 주면 구할 수 있다. 물리 CPU와 가상 CPU수는 같을 수도, 다를 수도 있는데 이는 하이퍼스레딩에 따라 달라진다고 한다. 아래 블로그 참고.
 * physical vs virtual processor : 하이퍼스레딩을 통해 각 물리적 코어에서 실행할 수 있는 스레드 수를 곱한 것이 논리적 코어라고 한다. 예를 들어 4코어 프로세서에서 코어당 2개의 스레드를 실행하면 8개의 논리 프로세서가 있다고 생각한다. virtual processor = logical processor 같은 의미로 사용되는 것 같다.
 * https://unix.stackexchange.com/questions/88283/so-what-are-logical-cpu-cores-as-opposed-to-physical-cpu-cores
 * https://developpaper.com/how-to-view-the-physical-cpu-logical-cpu-and-cpu-number-of-linux-servers/
@@ -205,7 +207,7 @@ pdisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} {ft+= $2} END {printf("%d
 * df 명령어로 디스크 사용량을 보면 처음 설정했던 디스크들의 file systemname이 모두 /dev/mapper로 시작하는 것을 알 수 있다. grep을 사용하여 해당 줄만 찾아준다. 이후 awk를 통해 각 필드의 합을 구해준다.
 
 ```shell
-cpul=$(mpstat | grep all | awk '{printf("%.1f%%"), 100 - $13}')
+cpul=$(mpstat | grep 'all' | awk '{printf("%.1f%%"), 100 - $13}')
 ```
 
 * sysstat 패키지를 설치하고 mpstat 명령어를 이용하여 CPU에 대한 정보를 출력한다.
@@ -225,8 +227,32 @@ lvmu=$(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo no; fi
 * lsblk를 통해 디스크 구성을 출력한다. lvm은 type에 lvm이라고 출력되기 때문에 grep으로 lvm을 찾고 wc -l로 개수를 카운트 해준다. 이후 -gt를 통해 0보다 크면 yes를, 작거나 같으면 no를 출력한다. 쉘 스크립트의 if문 형식이 ``if [값1 조건 값2]; the 수행문 fi`` 이기 때문에 이에 맞춰 작성해준다.
 
 ```shell
-ctcp=$(ss -t | grep -i ESTAB | wc -l | tr -d '\n')
+ctcp=$(ss -t | grep -i 'ESTAB' | wc -l | tr -d '\n')
 ```
 
 * ss(Socket Statistics) -t 옵션을 이용해 tcp 정보를 출력한다. grep -i 옵션을 이용해 대소문자 상관 없이 ESTAB을 찾고 카운트 한다.
 * TCP 상태는 ss -s 옵션으로도 확인해볼 수 있다. 상태별 의미는 다음 블로그를 참고. https://startingpitcher.tistory.com/12
+
+```shell
+ulog=$(users | wc -w)
+```
+
+* users 명령어를 통해 사용자를 출력하고 wc -w 옵션을 통해 단어별로 카운트한다.
+
+```shell
+ip=$(hostname -I)
+mac=$(ip link | awk '$1 == "link/ether" {print $2}')
+```
+
+* hostname -I 옵션을 통해 ip주소를 출력한다.
+* ip link를 통해 모든 네트워크 인터페이스 상태를 출력한다. 이후 link/ether로 시작하는 줄의 두 번째 필드를 출력한다. MAC주소(Media Access Control address)는 다른 말로 EHA 주소(Ethernet Hardware address)라 불리기도 한다.
+
+```shell
+cmds=$(grep 'sudo:' /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
+```
+
+* /var/log/auth.log 파일은 사용된 사용자 로그인 및 인증 기계를 포함하여 시스템 권한 부여 정보를 포함한다. sudo 권한이 부여된 정보를 찾기 위해 'sudo:'를 찾아주고 그 중에서 'COMMAND='를 찾아 세어준다.
+* https://www.thegeekstuff.com/2011/08/linux-var-log-files/
+
+마지막으로 wall명령어를 이용해 사용자의 터미널로 메세지를 보내준다. 
+
