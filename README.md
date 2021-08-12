@@ -167,7 +167,6 @@ Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실
 
 ### monitoring.sh
 서브젝트에서 요구하는대로 출력할 monitoring 스크립트를 만든다.
-* mpstat - sysstat 패키지 필요, ifconfig - net-tools 패키지 필요  
 
 ```shell
 $ uname -a #시스템 정보(os architecure and kernel version)를 출력한다.
@@ -178,8 +177,8 @@ $ uname -a #시스템 정보(os architecure and kernel version)를 출력한다.
 <img visudo src="https://user-images.githubusercontent.com/52701529/129062145-14f94c0f-ddf3-4c95-974b-e482a6b94fa3.png" width="600"> 커널 릴리즈와 커널 버전 순서가 바뀐 것 같다.. 제타위키에도 주석이 달려있다.
 
 ```shell
-$ grep "physical id" /proc/cpuinfo | sort -u | wc -l #물리 프로세서 수를 출력한다.
-$ grep "^processor" /proc/cpuinfo | wc -l #가상 프로세서 수를 출력한다.
+pcpu=$(grep "physical id" /proc/cpuinfo | sort | uniq | wc -l) #물리 cpu 수
+vcpu=$(grep "^processor" /proc/cpuinfo | wc -l) #가상 cpu 수
 ```  
 
 * physical vs virtual processor : 하이퍼스레딩을 통해 각 물리적 코어에서 실행할 수 있는 스레드 수를 곱한 것이 논리적 코어라고 한다. 예를 들어 4코어 프로세서에서 코어당 2개의 스레드를 실행하면 8개의 논리 프로세서가 있다고 생각한다. virtual processor = logical processor 같은 의미로 사용되는 것 같다.
@@ -187,8 +186,47 @@ $ grep "^processor" /proc/cpuinfo | wc -l #가상 프로세서 수를 출력한�
 * https://developpaper.com/how-to-view-the-physical-cpu-logical-cpu-and-cpu-number-of-linux-servers/
 
 ```shell
-$ free -m | grep Mem | awk '{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2 * 100}'
+fram=$(free -m | awk '$1 == "Mem:" {print $2}') #전체 메모리 용량
+uram=$(free -m | awk '$1 == "Mem:" {print $3}') #사용중인 메모리 용량
+pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}') #백분율
+```
+* Check RAM on Linux using free - https://devconnected.com/how-to-check-ram-on-linux/
+* free는 메모리 사용량을 알 수 있는 명령어다. -m 옵션을 통해 메가바이트 단위로 출력한다.
+* awk를 이용하여 데이터를 적절하게 조작한다. $2, $3은 두 번째 필드, 세 번째 필드를 뜻한다.
+
+```shell
+fdisk=$(df -Bg | grep '^/dev/mapper' | awk '{ft += $2} END {print ft}') #전체 디스크 용량
+udisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} END {print ut}') #사용중인 디스크 용량
+pdisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}') #백분율
 ```
 
-* free는 메모리 사용량을 알 수 있는 명령어이다. -m 옵션을 통해 메가바이트 단위로 출력한다.
-* grep Mem으로 memory 관련 부분을 찾고 awk를 이용해 데이터를 알맞게 조작한다. $2 $3은 두 번째 필드, 세 번째 필드를 뜻한다.
+* https://en.wikipedia.org/wiki/Df_(Unix)
+* df(disk free)는 디스크 사용량을 알 수 있는 명령어다. -B옵션을 통해 블럭단위를 조정한다.
+* df 명령어로 디스크 사용량을 보면 처음 설정했던 디스크들의 file systemname이 모두 /dev/mapper로 시작하는 것을 알 수 있다. grep을 사용하여 해당 줄만 찾아준다. 이후 awk를 통해 각 필드의 합을 구해준다.
+
+```shell
+cpul=$(mpstat | grep all | awk '{printf("%.1f%%"), 100 - $13}')
+```
+
+* sysstat 패키지를 설치하고 mpstat 명령어를 이용하여 CPU에 대한 정보를 출력한다.
+* 13번째 필드인 유휴 사용량을 100에서 빼주어 현재 사용량을 구한다.
+
+```shell
+lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
+```
+
+* who명령어는 현재 접속한 사용자 정보를 /var/run/utmp 파일에서 가져오며, 이 utmp파일은 사용자가 원격으로 서버에 호그인할 때 사용자 정보를 저장하고, 사용자가 원격 호스트에서 로그아웃할 때 저장되어 있는 정보를 제거한다.
+* -b 옵션으로 마지막 부팅시간을 출력한다.
+
+```shell
+lvmu=$(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
+```
+
+* lsblk를 통해 디스크 구성을 출력한다. lvm은 type에 lvm이라고 출력되기 때문에 grep으로 lvm을 찾고 wc -l로 개수를 카운트 해준다. 이후 -gt를 통해 0보다 크면 yes를, 작거나 같으면 no를 출력한다. 쉘 스크립트의 if문 형식이 ``if [값1 조건 값2]; the 수행문 fi`` 이기 때문에 이에 맞춰 작성해준다.
+
+```shell
+ctcp=$(ss -t | grep -i ESTAB | wc -l | tr -d '\n')
+```
+
+* ss(Socket Statistics) -t 옵션을 이용해 tcp 정보를 출력한다. grep -i 옵션을 이용해 대소문자 상관 없이 ESTAB을 찾고 카운트 한다.
+* TCP 상태는 ss -s 옵션으로도 확인해볼 수 있다. 상태별 의미는 다음 블로그를 참고. https://startingpitcher.tistory.com/12
