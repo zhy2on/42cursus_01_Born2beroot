@@ -1,21 +1,21 @@
 #!/bin/bash
 arc=$(uname -a)
-pcpu=$(grep "physical id" /proc/cpuinfo | sort -u | wc -l)
-vcpu=$(grep "processor" /proc/cpuinfo | wc -l)
+pcpu=$(grep 'physical id' /proc/cpuinfo | sort -u | wc -l)
+vcpu=$(grep 'processor' /proc/cpuinfo | wc -l)
 fram=$(free -m | awk '$1 == "Mem:" {print $2}')
 uram=$(free -m | awk '$1 == "Mem:" {print $3}')
 pram=$(free | awk '$1 == "Mem:" {printf("%.2f"), $3/$2*100}')
 fdisk=$(df -Bg | grep '^/dev/mapper' | awk '{ft += $2} END {print ft}')
 udisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} END {print ut}')
 pdisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}')
-cpul=$(mpstat | grep all | awk '{printf("%.1f%%"), 100 - $13}')
+cpul=$(mpstat | grep 'all' | awk '{printf("%.1f%%"), 100 - $13}')
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 lvmu=$(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
-ctcp=$(ss -t | grep -i ESTAB | wc -l | tr -d '\n')
+ctcp=$(ss -t | grep -i 'ESTAB' | wc -l | tr -d '\n')
 ulog=$(users | wc -w)
 ip=$(hostname -I)
 mac=$(ip link | awk '$1 == "link/ether" {print $2}')
-cmds=$(grep "sudo:" /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
+cmds=$(grep 'sudo:' /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
 wall "	#Architecture: $arc
 	#CPU physical: $pcpu
 	#vCPU: $vcpu
