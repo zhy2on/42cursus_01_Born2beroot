@@ -14,8 +14,8 @@ lvmu=$(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo no; fi
 ctcp=$(ss -t | grep -i ESTAB | wc -l | tr -d '\n')
 ulog=$(users | wc -w)
 ip=$(hostname -I)
-mac=$(ip link show | awk '$1 == "link/ether" {print $2}')
-cmds=$(journalctl _COMM=sudo | grep COMMAND | wc -l) # journalctl should be running as sudo but our script is running as root so we don't need in sudo here
+mac=$(ip link | awk '$1 == "link/ether" {print $2}')
+cmds=$(grep "sudo:" /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
 wall "	#Architecture: $arc
 	#CPU physical: $pcpu
 	#vCPU: $vcpu
