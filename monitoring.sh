@@ -12,7 +12,7 @@ cpul=$(mpstat | grep all | awk '{printf("%.1f%%"), 100 - $13}')
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 lvmu=$(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 #You need to install net tools for the next step [$ sudo apt install net-tools]
-ctcp=$(cat /proc/net/sockstat{,6} | awk '$1 == "TCP:" {print $3}')
+ctcp=$(ss -s | grep estab | awk '{print $4}' | sed 's/,//g')
 ulog=$(users | wc -w)
 ip=$(hostname -I)
 mac=$(ip link show | awk '$1 == "link/ether" {print $2}')
