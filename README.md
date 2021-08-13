@@ -39,11 +39,6 @@ Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리�
 *  LVM에선 여러 파티션을 하나의 논리적인 볼륨으로 묶은 뒤, 다시 필요한 크기만큼 나눠서 사용할 수 있다.
 *  https://wiseworld.tistory.com/32
 *  https://mamu2830.blogspot.com/2019/12/lvmpv-vg-lv-pe-lvm.html
-
-### LVM의 목적
-* 여러 개의 디스크 공간을 합쳐 하나인양 사용하기 위해
-* 사용하기 애매한 공간의 디스크 파티션들을 활용하기 위해
-* 기존에 사용중인 디스크의 공간을 확장할 수 있어서＊
 <img src="https://user-images.githubusercontent.com/52701529/128667623-9574c6cb-8898-43b3-8ded-540180a77575.png" width="400">
 
 ### SSH
@@ -62,6 +57,7 @@ $ sudo systemctl restart ssh #ssh 재시작
 ### UFW
 Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
 * UFW 사용법 - https://webdir.tistory.com/206
+* 방화벽이란? - 미리 정의된 보안 규칙에 기반한, 들어오고 나가는 네트워크 트래픽을 모니터링하고 제어하는 네트워크 보안 시스템이다. 방화벽은 일반적으로 신뢰할 수 있는 내부 네트워크, 신뢰할 수 없는 외부 네트워크 간의 장벽을 구성한다.
 
 ```shell
 $ sudo apt install ufw #ufw 설치
