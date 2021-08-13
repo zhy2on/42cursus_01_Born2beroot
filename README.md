@@ -14,25 +14,24 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   |--------|-------|
   |데비안(영어: Debian)은 데비안 프로젝트가 개발한 자유(free) 컴퓨터 운영 체제이다.| 센트OS(영어: CentOS)는 센트OS 프로젝트에서 레드햇 제휴로 개발한 컴퓨터 운영 체제이다. |
   |데비안은 안정성과 보안에 중점을 두며 사용자 편리성이 강한 우분투등 다른 많은 리눅스 배포판의 기반으로 쓰이고 있다. | 업스트림 소스인 레드햇 엔터프라이즈 리눅스와 완벽하게 호환되는 무료 기업용 컴퓨팅 플랫폼을 제공할 목적으로 만들어진 리눅스계 운영 체제 가운데 하나다. |
-  | deb라는 패키지를 쓴다. 패키지툴 : dpkg, apt dselect등 | rpm이라는 패키지를 쓴다. 패키지툴 : rpm |
+  | deb라는 패키지를 쓴다. 패키지툴 : dpkg, apt, aptitude, dselect등 | rpm이라는 패키지를 쓴다. 패키지툴 : rpm |
   | 현재 버전: 10.0	커널: 4.19 | 현재 버전: 8.0-1905	커널: 4.18.0-80|
 
 ### aptitude / apt 차이
 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
 * 패키지란? - 커널 및 라이브러리 버전의 배포판 환경에 맞추어 빌드한 실행파일을 압축한 것이다. https://elandda.tistory.com/47
-* "왜 데비안, 우분투를 더 선호하게 되느냐는 것은 패키지 관리 시스템의 우수성 때문입니다. 데비안 패키지 방식은 메인테이너들에 의해서 패키지가 관리되고 있어서 패키지를 네트워크를 통해 다운받을 때 의존성 패키지가 있는지를 검사하고 의존성 패키지가 자신의 환경에 설치되어 있지 않다면 자동으로 의존성 패키지까지 같이 설치할 수 있도록 지원하고 있습니다." - https://koikebox.tistory.com/67  
-|apt(Advanced Packaging Tool)|aptitude|
+* 빌드까지 완료된 상태로 압축한 것이기 때문에 사용하기 간편하다는 장점이 있지만, 빌드된 상태와 같은 환경으로 만들어줘야 한다는 단점이 있다. 이를 의존성 패키지라고 하는데, 데비안의 apt, aptitude와 같은 패키지 툴은 의존성 패키지를 자동으로 검사하고 필요한 패키지를 설치해주는 역할을 한다. - https://koikebox.tistory.com/67  
+  |apt(Advanced Packaging Tool)|aptitude|
   |-----|------|
-  |데비안 GNU/리눅스 배포판 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
-  |APT는 이진 파일로부터나 소스 코드 컴파일을 통하여 소프트웨어 패키지의 확인·구성·설치를 자동화함으로써 유닉스 계열 컴퓨터 시스템 상의 소프트웨어를 관리하는 작업을 단순하게 만든다.|앱티튜드는 특히 유연한 검색 패턴을 지원하는 검색 기능을 가지고 있다.|
+  |데비안 GNU/리눅스 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
   |![image](https://user-images.githubusercontent.com/52701529/128638891-8414af36-226f-4c4b-90bb-3ea35095c7c5.png)| ![image](https://user-images.githubusercontent.com/52701529/128633574-3b4eaaaf-6909-40ae-b86b-98b4b4f3b901.png)|
-  | apt 이스터에그🐮 | 가장 큰 차이가 프론트엔드 지원하는지! aptitude는 명령어 실행시키면 이렇게 프론트엔드 프로그램으로 실행할 수 있다. |
-* dpkg와 APT의 경우 제대로 사용하기 위해서는 좀더 많은 지식을 요구한다. 그에 비하여 aptitude의 경우 주요 패키지 작업 과정을 자동화하여 가능한 쉽게 작업할 수 있도록 해주므로 보다 쉽게 할 수 있다.
-* http://taewan.kim/tip/apt-apt-get/
   
 ### AppArmor
-Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다. 각각의 어플들의 권한을 필요한 만큼으로 제한해서, 보안을 강화한다.
-* APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
+Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다. 각각의 어플들의 권한을 제한해서, 보안을 강화한다.  
+AppArmor는 Enforce, Complain 2개의 Mode로 동작한다.
+* Enforce : Program의 허용되지 않은 동작을 제한하고 Log에 남긴다. 실제 Program을 운영하면서 동작을 제한 할 때 이용하는 Mode이다.
+* Complain : Program의 허용되지 않은 동작을 제한하지는 않고 Log만 남긴다.
+* https://ssup2.github.io/theory_analysis/AppArmor/
 
 ### LVM
 Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리눅스에서는 RAID와 LVM을 사용한다고 한다.)
