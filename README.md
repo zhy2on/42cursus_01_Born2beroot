@@ -30,7 +30,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 * http://taewan.kim/tip/apt-apt-get/
   
 ### AppArmor
-Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다.  
+Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다. 각각의 어플들의 권한을 필요한 만큼으로 제한해서, 보안을 강화한다.
 * APPArmor가 뭔가요? - https://forum.ubuntu-kr.org/viewtopic.php?t=22432
 
 ### LVM
@@ -49,17 +49,20 @@ Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리�
 ### SSH
 Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. - https://baked-corn.tistory.com/52
 * SSH 사용법 - http://programmingskills.net/archives/315
+
 ```shell
 $ apt install openssh-server #ssh 설치
 $ systemctl status ssh #ssh 상태 보기
 $ sudo vim /etc/ssh/sshd_config -> Port 4242 #4242 포트 활성화
 $ sudo systemctl restart ssh #ssh 재시작
 ```
+
 <img src="https://user-images.githubusercontent.com/52701529/128667562-48223a4c-081f-4086-95df-ade836be187f.png" width="500">
 
 ### UFW
 Uncomplicated Firewall. UFW는 데비안 계열 및 다양한 리눅스 환경에서 작동되는 사용하기 쉬운 방화벽 관리 프로그램이다.
 * UFW 사용법 - https://webdir.tistory.com/206
+
 ```shell
 $ sudo apt install ufw #ufw 설치
 $ sudo ufw status verbose #ufw 상태 보기
@@ -67,33 +70,39 @@ $ sudo ufw enable #ufw 활성화
 $ sudo ufw default deny #기본 incoming deny
 $ sudo ufw allow 4242 #4242포트 ssh연결 허용
 ```
+
 <img src="https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png" width="300">
 
 ### hostname 변경
 * hostname이란? - 인터넷에 접속된 수많은 컴퓨터들이 자신을 구별하기 위해 가지고 있는 것이 IP주소인데, IP대신 기억하기 쉽게 사용하는 것이 호스트네임이다. 
 * hostnamectl - https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_hostnamectl
+
 ```shell
 $ hostname #현재 호스트네임 확인
 $ sudo hostnamectl set-hostname wil42 #호스트네임 변경
 $ hostname #바뀐 호스트네임 확인
 $ sudo reoobt #재부팅 시 바뀐 호스트네임을 확인 가능하다.
 ```
+
 ![image](https://user-images.githubusercontent.com/52701529/128824567-42df6165-472a-444b-a090-3c59fc5a2592.png)
 
 ### group 추가
 * https://linuxize.com/post/how-to-add-user-to-group-in-linux/
 * Primary Group: 1개만 존재 해야 한다. 사용자가 로그인할 때, 파일 또는 디렉토리를 생성할 때 부여되는 기본 그룹이다.
 * Secondary Groups: 없거나 여러 개 존재할 수 있다. 사용자가 파일 또는 디렉토리를 읽거나 쓰거나 실행할 때 지정된 그룹들의 권한을 받는다.
+
 ```shell
 $ groupadd user42 #user42라는 그룹 추가
 $ sudo usermod -G sudo,user42 jihoh #jihoh가 속한 그룹을 sudo, user42로 변경. (-a(append)옵션 사용시 기존에 추가. 없이 사용시 그대로 변경)
 $ sudo usermod -g user42 jihoh #user42를 primary group으로 설정
 $ id jihoh #계정 정보 확인
 ```
+
 <img src="https://user-images.githubusercontent.com/52701529/128673701-f78ef65a-4f08-4bd4-b89a-d58911b9a47c.png" width="450">
 
 ### 비밀번호 정책
 * https://dgblog.tistory.com/121
+
 ```shell
 $ sudo vi /etc/login.defs
 PASS_MAX_DAYS 30 #만료일
@@ -101,6 +110,7 @@ PASS_MIN_DAYS 2 #최소 사용일
 PASS_WARN_AGE 7 #경고 메세지
 PASS_MIN_LEN 10 #최소 글자수
 ```
+
 <img src="https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png" width="150">
 
 * https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
@@ -121,9 +131,11 @@ $ passwd -e [username] #passwd -e (expire) 비밀번호 만료 옵션.
 ``` 
 
 * /etc/login.defs 내용도 기존 계정들은 따로 적용해줘야 한다.
+
 ```shell
 $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
 ```
+
 <img src="https://user-images.githubusercontent.com/52701529/128839281-cd0742ce-23fa-4f4e-9ae7-ba53b682994f.png" width="400">
   
 ### sudo configuration
@@ -135,6 +147,7 @@ $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
 * tty / pts
     * https://codedragon.tistory.com/4211 
     <img src="https://user-images.githubusercontent.com/52701529/128916391-42dccb1f-7de8-408a-9bfc-3f2fa039b818.png" width="400">
+    
 ```shell
 $ su #root 계정 전환
 $ apt install sudo #sudo 설치
@@ -143,6 +156,7 @@ $ mkdir /var/log/sudo #log file을 저장할 디렉토리 생성
 $ export EDITOR=vim #EDITOR 환경 변수를 설정하여 visudo를 사용할 편집기를 vim으로 수정한다.
 $ sudo -E visudo #visudo 명령어를 이용하여 /etc/sudoers 파일 변경 -E옵션을 이용해 sudo에서 현재 환경변수를 그대로 사용.
 ```
+
 ```shell
 Defaults    env_reset #기본 설정. sudo 권한으로 실행시 HOME, PATH, SHELL, TERM, USER를 제외한 모든 환경 변수를 reset시킨다. 현재 실행중인 환경 변수를 그대로 사용하자고 한다면 주석처리 하면 되지만, 더 안전한 env_keep이 권장된다.
 Defaults    mail_badpass #기본 설정. sudo를 실행중인 사용자가 잘못된 암호 입력시 malito 사용자에게 메일을 보낸다. 기본적으로 이 기능은 꺼져있다.
@@ -154,6 +168,7 @@ Defaults    log_input, log_output #sudo 이용한 user input과 output을 저장
 Defaults    iolog_dir="/var/log/sudo/" #I/O log directory 변경
 Defaults    requiretty #사용자가 실제 tty로 로그인한 경우에만 실행을 허용한다.
 ```
+
 <img visudo src="https://user-images.githubusercontent.com/52701529/128920520-b4053054-4e9e-4c5a-94ed-7fab93b06f51.png" width="600">
 <img visudo src="https://user-images.githubusercontent.com/52701529/128919723-f81970b3-d44b-4363-be95-18aa69c68640.png" width="400">
 
