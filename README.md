@@ -92,6 +92,12 @@ $ sudo reoobt #재부팅 시 바뀐 호스트네임을 확인 가능하다.
 * Secondary Groups: 없거나 여러 개 존재할 수 있다. 사용자가 파일 또는 디렉토리를 읽거나 쓰거나 실행할 때 지정된 그룹들의 권한을 받는다.
 
 ```shell
+$ sudo useradd user
+$ sudo passwd user
+$ cat /etc/passwd
+$ cat /etc/shadow
+$ sudo deluser user
+
 $ groupadd user42 #user42라는 그룹 추가
 $ sudo usermod -G sudo,user42 jihoh #jihoh가 속한 그룹을 sudo, user42로 변경. (-a(append)옵션 사용시 기존에 추가. 없이 사용시 그대로 변경)
 $ sudo usermod -g user42 jihoh #user42를 primary group으로 설정
@@ -111,7 +117,7 @@ PASS_WARN_AGE 7 #경고 메세지
 PASS_MIN_LEN 10 #최소 글자수
 ```
 
-<img src="https://user-images.githubusercontent.com/52701529/128830126-21314416-00e9-4e27-b710-2283b9fb1639.png" width="150">
+<img src="https://user-images.githubusercontent.com/52701529/129348839-acbeace8-9d56-4ee8-8b79-500d23bde96f.png" width="150">
 
 * https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
 
@@ -236,10 +242,10 @@ lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 * -b 옵션으로 마지막 부팅시간을 출력한다.
 
 ```shell
-lvmu=$(if [ $(lsblk | grep lvm | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
+lvmu=$(if [ $(sudo lvscan | grep 'ACTIVE' | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 ```
 
-* lsblk를 통해 디스크 구성을 출력한다. lvm은 type에 lvm이라고 출력되기 때문에 grep으로 lvm을 찾고 wc -l로 개수를 카운트 해준다. 이후 -gt를 통해 0보다 크면 yes를, 작거나 같으면 no를 출력한다. 쉘 스크립트의 if문 형식이 ``if [값1 조건 값2]; the 수행문 fi`` 이기 때문에 이에 맞춰 작성해준다.
+* lvscan을 이용해 lvm 활성상태를 출력하고 활성화된 lvm 개수를 세어 준다. 개수가 0보다 크면 yes, 아니면 no를 출력한다. ``if [값1 조건 값2]; the 수행문 fi`` 이기 때문에 이에 맞춰 작성해준다.
 
 ```shell
 ctcp=$(ss -t | grep -i 'ESTAB' | wc -l | tr -d '\n')
@@ -263,7 +269,7 @@ mac=$(ip link | awk '$1 == "link/ether" {print $2}')
 * ip link를 통해 모든 네트워크 인터페이스 상태를 출력한다. 이후 link/ether로 시작하는 줄의 두 번째 필드를 출력한다. MAC주소(Media Access Control address)는 다른 말로 EHA 주소(Ethernet Hardware address)라 불리기도 한다.
 
 ```shell
-cmds=$(grep 'sudo:' /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
+cmds=$(sudo cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr -d '\n')
 ```
 
 * /var/log/auth.log 파일은 사용된 사용자 로그인 및 인증 기계를 포함하여 시스템 권한 부여 정보를 포함한다. sudo 권한이 부여된 정보를 찾기 위해 'sudo:'를 찾아주고 그 중에서 'COMMAND='를 찾아 세어준다.
