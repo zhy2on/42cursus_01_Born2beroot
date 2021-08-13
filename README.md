@@ -269,5 +269,5 @@ cmds=$(grep 'sudo:' /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
 * /var/log/auth.log 파일은 사용된 사용자 로그인 및 인증 기계를 포함하여 시스템 권한 부여 정보를 포함한다. sudo 권한이 부여된 정보를 찾기 위해 'sudo:'를 찾아주고 그 중에서 'COMMAND='를 찾아 세어준다.
 * https://www.thegeekstuff.com/2011/08/linux-var-log-files/
 
-마지막으로 wall명령어를 이용해 사용자의 터미널로 메세지를 보내준다. 
+마지막으로 wall명령어를 이용해 서버와 연결된 모든 사용자의 터미널로 메세지를 보내준다. 
 
