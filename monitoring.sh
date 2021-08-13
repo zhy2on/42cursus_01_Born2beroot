@@ -10,12 +10,12 @@ udisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} END {print ut}')
 pdisk=$(df -Bm | grep '^/dev/mapper' | awk '{ut += $3} {ft+= $2} END {printf("%d"), ut/ft*100}')
 cpul=$(mpstat | grep 'all' | awk '{printf("%.1f%%"), 100 - $13}')
 lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
-lvmu=$(if [ $(lvscan | grep 'ACTIVE' | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
+lvmu=$(if [ $(sudo lvscan | grep 'ACTIVE' | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 ctcp=$(ss -t | grep -i 'ESTAB' | wc -l | tr -d '\n')
 ulog=$(users | wc -w)
 ip=$(hostname -I)
 mac=$(ip link | awk '$1 == "link/ether" {print $2}')
-cmds=$(grep 'sudo:' /var/log/auth.log | grep 'COMMAND=' | wc -l | tr -d '\n')
+cmds=$(sudo cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr -d '\n')
 wall "	#Architecture: $arc
 	#CPU physical: $pcpu
 	#vCPU: $vcpu
