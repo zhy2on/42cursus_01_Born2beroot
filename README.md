@@ -20,7 +20,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
 ### aptitude / apt 차이
 패키지관리 프로그램(apt, dpkg, aptitude)의 한 유형이다.
 * 패키지란? - 커널 및 라이브러리 버전의 배포판 환경에 맞추어 빌드한 실행파일을 압축한 것이다. https://elandda.tistory.com/47
-* 빌드까지 완료된 상태로 압축한 것이기 때문에 사용하기 간편하다는 장점이 있지만, 빌드된 상태와 같은 환경으로 만들어줘야 한다는 단점이 있다. 이를 의존성 패키지라고 하는데, 데비안의 apt, aptitude와 같은 패키지 툴은 의존성 패키지를 자동으로 검사하고 필요한 패키지를 설치해주는 역할을 한다. - https://koikebox.tistory.com/67  
+* 빌드까지 완료된 상태로 압축한 것이기 때문에 사용하기 편하다는 장점이 있지만, 빌드된 상태와 같은 환경으로 만들어줘야 한다는 단점이 있다. 이를 의존성 패키지라고 하는데, 데비안의 apt, aptitude와 같은 패키지 툴은 의존성 패키지를 자동으로 검사하고 필요한 패키지를 설치해주는 역할을 한다. - https://koikebox.tistory.com/67  
   |apt(Advanced Packaging Tool)|aptitude|
   |-----|------|
   |데비안 GNU/리눅스 계열 배포판에서 소프트웨어를 설치하고 제거하는 일을 한다.|APT의 프론트엔드 프로그램이다. 앱티튜드는 소프트웨어 패키지의 목록을 보여주고, 사용자가 패키지를 능동적으로 설치 혹은 삭제하도록 허용한다.|
@@ -44,6 +44,7 @@ Logical Volume Manager. 리눅스의 하드디스크 관리 기술이다. (리�
 ### SSH
 Secure Shell Protocol. 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다. - https://baked-corn.tistory.com/52
 * SSH 사용법 - http://programmingskills.net/archives/315
+* PC에서 VM 서버 ssh로 접속하기 - https://sancs.tistory.com/110
 
 ```shell
 $ apt install openssh-server #ssh 설치
@@ -65,6 +66,8 @@ $ sudo ufw status verbose #ufw 상태 보기
 $ sudo ufw enable #ufw 활성화
 $ sudo ufw default deny #기본 incoming deny
 $ sudo ufw allow 4242 #4242포트 ssh연결 허용
+$ sudo ufw status numbered #rule 리스트
+$ sudo ufw delete [rule number] #rule 삭제
 ```
 
 <img src="https://user-images.githubusercontent.com/52701529/128667359-6c0559d5-6bc9-4a7e-9679-f957afee3f15.png" width="300">
@@ -271,5 +274,13 @@ cmds=$(sudo cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr
 * /var/log/auth.log 파일은 사용된 사용자 로그인 및 인증 기계를 포함하여 시스템 권한 부여 정보를 포함한다. sudo 권한이 부여된 정보를 찾기 위해 'sudo:'를 찾아주고 그 중에서 'COMMAND='를 찾아 세어준다.
 * https://www.thegeekstuff.com/2011/08/linux-var-log-files/
 
-마지막으로 wall명령어를 이용해 서버와 연결된 모든 사용자의 터미널로 메세지를 보내준다. 
+마지막으로 wall명령어를 이용해 서버와 연결된 모든 사용자의 터미널로 메세지를 보내준다.  
+이후 cron을 이용하여 10분마다 monitoring script가 실행될 수 있게 한다.
+
+* cron이란? - Cron은 간단한게 말해서 unix 운영체제에서 어떤 작업을 특정 시간에 실행시키기 위한 데몬이다. cron 작업을 설정하는 파일을 바로 crontab 파일이라고 부른다.
+
+```shell
+*/10 * * * * /monitoring.sh #10분마다 실행
+* * * * * /monitoring.sh ; sleep 30; /monitoring.sh #30초 마다 실행
+```
 
