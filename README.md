@@ -286,7 +286,7 @@ cmds=$(sudo cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr
 
 ## Bonus
 ### lighttpd, php, mariaDB
-https://www.tecmint.com/install-lighttpd-in-ubuntu/
+https://www.tecmint.com/install-lighttpd-in-ubuntu/   
 https://websiteforstudents.com/install-wordpress-on-ubuntu-16-04-lts-with-lighttpd-mariadb-and-php-7-1-support/
 
 
@@ -300,4 +300,9 @@ $ sudo mysql -u root -p
 <img src="https://user-images.githubusercontent.com/52701529/129451084-d26555e3-03dc-4b75-bb90-be3f44b67205.png" width="200">
 <img src="https://user-images.githubusercontent.com/52701529/129451106-60888313-6e97-4813-bb4a-7bbd9f677dbf.png" width="600">
 
-* 웹서버 관련 설치가 끝나고 나면 연동된 db에 워드프레스 내용이 잘 담겨 있는 것을 볼 수 있다.
+웹서버 관련 설치가 끝나고 나면 연동된 db에 워드프레스 내용이 잘 담겨 있는 것을 볼 수 있다.
+
+정적 웹페이지 vs 동적 웹페이지  
+* https://snowdeer.github.io/blog/2016/03/21/static-dynamic-webpage/ - "이름에서 눈치를 챌 수 있듯이 사용자의 인터랙션에 따라 웹페이지가 바뀌어가는 것을 동적 웹페이지, 그렇지 않고 항상 같은 내용을 보여주는 웹페이지를 정적 웹페이지라고 합니다. 일반적인 게시판 형태의 사이트들은 데이터베이스(DB, Database)를 활용한 동적 웹페이지 방식을 사용하고 있고, 정적 웹페이지 방식의 경우에는 DB를 사용하지 않습니다. 정적 웹페이지 방식은 글 자체가 전부 html 단위의 파일들로 이루어져 있습니다."    
+
+https://www.howtoforge.com/tutorial/how-to-install-and-configure-openlitespeed-server-along-with-mariadb-and-php-on-ubuntu-2004/
