@@ -284,3 +284,20 @@ cmds=$(sudo cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr
 * * * * * /monitoring.sh ; sleep 30; /monitoring.sh #30초 마다 실행
 ```
 
+## Bonus
+### lighttpd, php, mariaDB
+https://www.tecmint.com/install-lighttpd-in-ubuntu/
+https://websiteforstudents.com/install-wordpress-on-ubuntu-16-04-lts-with-lighttpd-mariadb-and-php-7-1-support/
+
+
+<img src="https://user-images.githubusercontent.com/52701529/129450904-2007a132-19bf-4e4c-a427-a85a185388ad.png" width="500">
+<img src="https://user-images.githubusercontent.com/52701529/129450939-02c836b7-d72f-40f3-b655-9f9406ce4c83.png" width="500">
+
+```shell
+$ sudo mysql -u root -p
+```
+
+<img src="https://user-images.githubusercontent.com/52701529/129451084-d26555e3-03dc-4b75-bb90-be3f44b67205.png" width="200">
+<img src="https://user-images.githubusercontent.com/52701529/129451106-60888313-6e97-4813-bb4a-7bbd9f677dbf.png" width="600">
+
+* 웹서버 관련 설치가 끝나고 나면 연동된 db에 워드프레스 내용이 잘 담겨 있는 것을 볼 수 있다.
