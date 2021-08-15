@@ -153,7 +153,9 @@ $ sudo chage -m 2 -M 30 -W 7 [username]  #-m MIN_DAYS -M MAX_DAYS -W WARN_DAYS
 ```
 
 <img src="https://user-images.githubusercontent.com/52701529/128839281-cd0742ce-23fa-4f4e-9ae7-ba53b682994f.png" width="400">
-  
+
+안전한 비밀번호 작성 규칙 - https://privacy.go.kr/a3sc/per/chk/examInfoViewCQ4.do
+
 ### sudo configuration
 * securepath : sudo 명령은 현재 계정의 쉘이 아닌 가상 쉘을 생성하고 그 안에서 실행된다. 이때 이 가상 쉘의 환경변수 PATH의 값을  secure_path 옵션을 통해 지정한다.
 * https://www.sudo.ws/man/1.8.15/sudoers.man.html#mail_no_user
