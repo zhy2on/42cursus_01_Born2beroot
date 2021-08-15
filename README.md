@@ -307,6 +307,7 @@ https://phoenixnap.com/kb/how-to-install-phpmyadmin-on-debian-10#ftoc-heading-8
 <img src="https://user-images.githubusercontent.com/52701529/129450939-02c836b7-d72f-40f3-b655-9f9406ce4c83.png" width="500">
 
 ```shell
+$ sudo vi /etc/lighttpd/lighttpd.conf
 $ sudo mysql -u root -p
 ```
 
