@@ -130,6 +130,7 @@ PASS_MIN_LEN 10 #최소 글자수
 <img src="https://user-images.githubusercontent.com/52701529/129348839-acbeace8-9d56-4ee8-8b79-500d23bde96f.png" width="150">
 
 * https://computingforgeeks.com/enforce-strong-user-password-policy-ubuntu-debian/
+* https://linuxer.name/2019/09/ubuntu-16-04-pam-%ED%8C%A8%EC%8A%A4%EC%9B%8C%EB%93%9C-%EC%9C%A0%ED%9A%A8%EC%84%B1-%EC%A0%9C%ED%95%9C-libpam-pwquality-%EC%84%A4%EC%A0%95-%ED%8F%AC%ED%95%A8/
 
 ```shell
 $ sudo apt install libpam-pwquality cracklib-runtime #libpam-pwquality 설치
