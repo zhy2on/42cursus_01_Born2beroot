@@ -33,7 +33,7 @@ https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2be
   https://zetawiki.com/wiki/%EC%9A%B0%EB%B6%84%ED%88%AC_APT,_apt-get
   
 ### AppArmor
-Application Armor. 시스템 관리자가 프로그램 프로필 별로 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다. 각각의 어플들의 권한을 제한해서, 보안을 강화한다.  
+Application Armor. 시스템 관리자가 프로그램의 역량을 제한할 수 있게 해주는 리눅스 커널 보안 모듈이다. 각각의 어플들의 권한을 제한해서, 보안을 강화한다.  
 AppArmor는 Enforce, Complain 2개의 Mode로 동작한다.
 
 ```shell
