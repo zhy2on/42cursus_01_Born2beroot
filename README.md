@@ -9,6 +9,10 @@ https://github.com/zhy2on/42cursus_01_Born2beroot/blob/main/Subject.md
 https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2beroot.pdf
 
 ## 자료 정리
+### Virtual Machine
+컴퓨터 안에 또 다른 컴퓨터를 동작 시키는 것이다.  
+한 컴퓨터 안에서 자원을 독립적으로 사용자에게 나눠주고 싶을 때, 서로 다른 운영체제를 한 컴퓨터 안에서 실행하고 싶을 때, 악성코드를 분석할 때 등등 다양한 목적으로 사용된다.
+
 ### Debian / CentOS
   | Debian | CentOS|
   |--------|-------|
