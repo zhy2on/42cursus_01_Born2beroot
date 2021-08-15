@@ -102,7 +102,7 @@ $ sudo reoobt #재부팅 시 바뀐 호스트네임을 확인 가능하다.
 * Secondary Groups: 없거나 여러 개 존재할 수 있다. 사용자가 파일 또는 디렉토리를 읽거나 쓰거나 실행할 때 지정된 그룹들의 권한을 받는다.
 
 ```shell
-$ sudo useradd user
+$ sudo adduser user
 $ sudo passwd user
 $ cat /etc/passwd
 $ cat /etc/shadow
