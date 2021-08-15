@@ -37,7 +37,7 @@ Application Armor. 시스템 관리자가 프로그램의 역량을 제한할 �
 AppArmor는 Enforce, Complain 2개의 Mode로 동작한다.
 
 ```shell
-sudo aa-stauts
+$ sudo aa-stauts
 ```
 
 * Enforce : Program의 허용되지 않은 동작을 제한하고 Log에 남긴다. 실제 Program을 운영하면서 동작을 제한 할 때 이용하는 Mode이다.
