@@ -252,7 +252,7 @@ lb=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 * -b 옵션으로 마지막 부팅시간을 출력한다.
 
 ```shell
-lvmu=$(if [ $(sudo lvscan | grep 'ACTIVE' | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
+lvmu=$(if [ $(/usr/sbin/lvscan | grep 'ACTIVE' | wc -l) -gt 0 ]; then echo yes; else echo no; fi)
 ```
 
 * lvscan을 이용해 lvm 활성상태를 출력하고 활성화된 lvm 개수를 세어 준다. 개수가 0보다 크면 yes, 아니면 no를 출력한다. ``if [값1 조건 값2]; the 수행문 fi`` 이기 때문에 이에 맞춰 작성해준다.
@@ -279,7 +279,7 @@ mac=$(ip link | awk '$1 == "link/ether" {print $2}')
 * ip link를 통해 모든 네트워크 인터페이스 상태를 출력한다. 이후 link/ether로 시작하는 줄의 두 번째 필드를 출력한다. MAC주소(Media Access Control address)는 다른 말로 EHA 주소(Ethernet Hardware address)라 불리기도 한다.
 
 ```shell
-cmds=$(sudo cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr -d '\n')
+cmds=$(cat /var/log/auth.log | grep 'sudo: ' | grep 'COMMAND=' | wc -l | tr -d '\n')
 ```
 
 * /var/log/auth.log 파일은 사용된 사용자 로그인 및 인증 기계를 포함하여 시스템 권한 부여 정보를 포함한다. sudo 권한이 부여된 정보를 찾기 위해 'sudo:'를 찾아주고 그 중에서 'COMMAND='를 찾아 세어준다.
