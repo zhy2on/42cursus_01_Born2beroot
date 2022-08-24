@@ -2,12 +2,6 @@
 ## 기본 개요
 * virtualBox를 이용하여 운영체제를 설치해본다.
 
-## Subject
-https://github.com/zhy2on/42cursus_01_Born2beroot/blob/main/Subject.md
-
-## 평가지
-https://github.com/wshloic/born2beroot_correction/blob/master/correction_born2beroot.pdf
-
 ## 자료 정리
 ### Virtual Machine
 컴퓨터 안에 또 다른 컴퓨터를 동작 시키는 것이다.  
